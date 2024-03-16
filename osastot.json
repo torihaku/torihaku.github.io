@@ -71,6 +71,22 @@
                         "location": 43
                     }
                 }
+            },
+            "Valokuvaus ja video": {
+                "location": 3904,
+                "alakategoriat": {
+                    "Hybridikamerat": {
+                        "location": 303
+                    }
+                }
+            },
+            "Videopelit ja konsolit": {
+                "location": 3905,
+                "alakategoriat": {
+                    "Oheistuotteet": {
+                        "location": 65
+                    }
+                }
             }
         }
     },
@@ -105,6 +121,46 @@
         "kategoriat": {
             "Autotallin ovet ja kalusteet": {
                 "location": 8348
+            }
+        }
+    },
+    "Lapset ja vanhemmat": {
+        "location": 68,
+        "kategoriat": {
+            "Lasten kalusteet": {
+                "location": 3916
+            }
+        }
+    },
+    "Liiketoiminta ja palvelut": {
+        "location": 91,
+        "kategoriat": {
+            "Esitystekniikka": {
+                "location": 3110
+            }
+        }
+    },
+    "Urheilu ja ulkoilu": {
+        "location": 69,
+        "kategoriat": {
+            "Extreme-urheilu": {
+                "location": 3938
+            }
+        }
+    },
+    "Vaatteet, kosmetiikka ja asusteet": {
+        "location": 71,
+        "kategoriat": {
+            "Ihonhoito ja hiustenhoito": {
+                "location": 8280
+            }
+        }
+    },
+    "Viihde ja harrastukset": {
+        "location": 86,
+        "kategoriat": {
+            "Elintarvikkeet": {
+                "location": 3972
             }
         }
     }
