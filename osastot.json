@@ -1,0 +1,54 @@
+{
+    "Antiikki ja taide": {
+      "location": 76,
+      "kategoriat": {
+        "Antiikkihuonekalut": {
+            "location": 5178,
+            "alakategoriat": {
+            }
+        },
+        "Aterimet ja pöytähopeat": {
+            "location": 5179,
+            "alakategoriat": {
+            }
+        },
+        "Keramiikka, posliini ja lasi": {
+            "location": 5176,
+            "alakategoriat": {
+            }
+        },
+        "Antiikki ja taide": {
+            "location": 5177,
+            "alakategoriat": {
+                "Akryylimaalaukset": {
+                    "location": 385
+                }
+            }
+        }
+      }
+    },
+    "Auto-, vene- ja moottoripyörätarvikkeet": {
+        "location": 90,
+        "kategoriat": {
+            "Asuntoauto- ja matkailuautotarvikkeet": {
+                "location": 70,
+                "alakategoriat": {
+                }
+            }
+        }
+    },
+    "Elektroniikka ja kodinkoneet": {
+        "location": 93,
+        "kategoriat": {
+            "Kodin pienkoneet": {
+                "location": 3216,
+                "alakategoriat": {
+                    "Kahvinkeittimet": {
+                        "location": 506
+                    }
+                }
+            }
+        }
+    }
+}
+  

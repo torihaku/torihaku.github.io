@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: '"Rethink Sans"',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        body {
+            @apply font-sans text-gray-900;
+        }
+        #search-history-list {
+            li:first-child {
+                @apply ml-6;
+            }
+            li:last-child {
+                @apply mr-6;
+            }
+        }  
+    </style>
+</head>
+<body>
+    <div class="container mx-auto pb-6 space-y-4 md:border md:my-12 md:shadow-lg md:border-gray-300 md:rounded-xl">
+        <div class="pt-10 pb-10 text-center flex flex-col items-center bg-red-400 text-white">
+            <h2 class="font-black text-2xl">yksinkertaisempi</h2>
+            <h1 class="font-black text-6xl mb-4">Torihaku</h1>
+            <p class="text-lg w-4/5 leading-tight">Tervetuloa käyttämään yksinkertaistettua hakua Tori.fi-käyttäjille. <a href="#" id="open-modal" class="underline text-red-900">Lue lisää</a>
+            </p>
+        </div>
+
+        <div class="px-6 md:w-3/5 md:mx-auto pt-2">
+            <div class="border border-gray-300 flex items-center relative rounded">
+                <input type="text" id="hakusana" placeholder="Hae Torista" class="pl-5 pr-14 py-4 w-full rounded text-xl">
+                <span class="material-symbols-outlined text-gray-900 absolute right-2 top-1/2 -translate-y-1/2 text-4xl">search</span>
+            </div>
+        </div>
+
+        <ul id="search-history-list" class="overflow-x-scroll flex flex-row"></ul>
+
+        <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 px-6 md:w-3/5 md:mx-auto">
+            <div class="w-full shadow md:shadow-none relative">
+                <div id="button-osasto" class="md:hidden flex justify-between w-full pl-3 pr-2 py-2 border border-gray-300 rounded">
+                    <p>Valitse osasto</p><span class="material-symbols-outlined text-gray-400">unfold_more</span>
+                </div>
+                <div id="dropdown-osasto" class="border border-gray-300 p-2 rounded shadow-lg md:shadow-none absolute md:relative bottom-0 translate-y-full md:translate-y-0 w-full left-0 bg-white hidden md:block z-50">
+                    <div class="search-container w-full mb-2 relative">
+                        <input type="text" id="searchInput-osasto" placeholder="Hae osastoa" class="w-full border border-gray-300 rounded px-3 py-2">
+                        <div class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center"><span class="material-symbols-outlined text-gray-700 text-base">close</span></div>
+                    </div>
+                    <div id="dropdownContainer-osasto" class="dropdown-container max-h-48 overflow-y-scroll flex flex-col bg-white">
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full shadow md:shadow-none relative">
+                <div id="button-sijainti" class="flex justify-between w-full pl-3 pr-2 py-2 border border-gray-300 rounded md:hidden">
+                    <p>Valitse sijainti</p><span class="material-symbols-outlined text-gray-400">unfold_more</span>
+                </div>
+                <div id="dropdown-sijainti" class="border border-gray-300 p-2 rounded shadow-lg absolute bottom-0 translate-y-full w-full left-0 bg-white hidden md:block md:relative md:translate-y-0 md:shadow-none">
+                    <div class="search-container w-full mb-2">
+                        <input type="text" id="searchInput" placeholder="Hae sijaintia" class="w-full border border-gray-300 rounded px-3 py-2">
+                    </div>
+                    <div id="dropdownContainer" class="dropdown-container max-h-48 overflow-y-scroll flex flex-col bg-white">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 px-6 md:w-3/5 md:mx-auto">
+            <div class="flex flex-col px-3 py-2 border border-gray-300 rounded space-y-2 md:flex-1">
+                <p class="font-bold">Myyjä:</p>
+                <div class="flex">
+                    <label class="space-x-2 flex flex-1"><input type="checkbox" id="yksityinen" checked><p>Yksityinen</p></label>
+                    <label class="space-x-2 flex flex-1"><input type="checkbox" id="yritys"><p>Yritys</p></label>
+                </div>
+            </div>
+            <div class="flex flex-col px-3 py-2 border border-gray-300 rounded space-y-2 md:flex-1">
+                <p class="font-bold">Tyyppi:</p>
+                <div class="flex">
+                    <label class="space-x-2 flex flex-1"><input type="checkbox" id="myydään" checked><p>Myydään</p></label>
+                    <label class="space-x-2 flex flex-1"><input type="checkbox" id="annetaan"><p>Annetaan</p></label>
+                    <label class="space-x-2 flex flex-1"><input type="checkbox" id="ostetaan"><p>Ostetaan</p></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="px-6 md:w-3/5 md:mx-auto">
+            <div id="button-hae" class="rounded px-4 py-3 bg-red-400 text-center text-white text-xl flex space-x-2 items-center justify-center">
+                <p class="font-bold">Hae</p>
+                <span class="material-symbols-outlined text-gray-900 text-3xl text-white">arrow_forward</span>
+            </div>
+        </div>
+
+        <div class="px-6 text-gray-400 text-center pt-8">
+            <p class="text-xs">Tämä palvelu on itsenäisesti kehitetty eikä se ole virallisesti yhteydessä Tori.fi-palveluun, Schibsted-konserniin tai mihinkään niiden tytäryhtiöihin. Tämän palvelun kehittäjät tai tämän palvelun tarjoajat eivät ole missään suhteessa Tori.fi-palveluun tai Schibsted-konserniin, eikä heillä ole minkäänlaista virallista yhteyttä tai kumppanuutta näiden organisaatioiden kanssa.</p>
+        </div>
+    </div>
+
+<div id="modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full px-6">
+    <div class="relative top-1/2 -translate-y-1/2 p-6 border w-96 shadow-lg rounded-md bg-white w-auto">
+        <div class="mt-3 text-left">
+            <h3 class="leading-6 font-black text-2xl mb-4">Lisätietoa</h3>
+            <div class="mt-2 leading-tight">
+                <p class="mt-3">Palvelu on suunniteltu ensisijaisesti älypuhelimille.</p>
+                <p class="mt-3">Kun teet haun palvelu avaa puhelimesi Tori-sovelluksen suodatettuna valintojesi mukaan.</p>
+                <p class="mt-3">Tehdyt haut tallennetaan paikallisesti selaimesi välimuistiin, jotta voit helposti palata niihin.</p>
+                <p class="mt-3">Palvelu <span class="font-bold">ei tallenna</span> tehtyjä hakuja.</p>
+                <p class="mt-3">Tämä palvelu on itsenäisesti kehitetty eikä se ole virallisesti yhteydessä Tori.fi-palveluun, Schibsted-konserniin tai mihinkään niiden tytäryhtiöihin. Tämän palvelun kehittäjät tai tämän palvelun tarjoajat eivät ole missään suhteessa Tori.fi-palveluun tai Schibsted-konserniin, eikä heillä ole minkäänlaista virallista yhteyttä tai kumppanuutta näiden organisaatioiden kanssa.</p>
+            </div>
+            <div class="items-center mt-8 text-center">
+                <button id="close-modal" class="px-4 py-2 bg-red-400 text-white rounded hover:bg-red-500">Sulje</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <script src="script.js"></script>
+  <script src="toggle.js"></script>
+  <script src="hae.js"></script>
+</body>
+</html>

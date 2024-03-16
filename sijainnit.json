@@ -1,0 +1,73 @@
+{
+    "Kanta-Häme": {
+      "location": 100017,
+      "kunnat": {
+        "Forssa": {
+            "location": 110061,
+            "osat": {
+            }
+        },
+        "Hattula": {
+            "location": 110082,
+            "osat": {
+            }
+        },
+        "Hausjärvi": {
+            "location": 110086,
+            "osat": {
+            }
+        },
+        "Humppila": {
+            "location": 110103,
+            "osat": {
+            }
+        },
+        "Hämeenlinna": {
+            "location": 110109,
+            "osat": {
+            }
+        },
+        "Janakkala": {
+            "location": 110165,
+            "osat": {
+            }
+        },
+        "Jokioinen": {
+            "location": 110169,
+            "osat": {
+            }
+        },
+        "Loppi": {
+            "location": 110433,
+            "osat": {
+            }
+        },
+        "Riihimäki": {
+            "location": 110694,
+            "osat": {
+            }
+        },
+        "Tammela": {
+            "location": 110834,
+            "osat": {
+            }
+        },
+        "Ypäjä": {
+            "location": 110981,
+            "osat": {
+            }
+        }
+      }
+    },
+    "Keski-Pohjanmaa": {
+        "location": 100004,
+        "kunnat": {
+          "Halsua": {
+              "location": 110074,
+              "osat": {
+              }
+          }
+        }
+    }
+}
+  
