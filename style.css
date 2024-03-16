@@ -24,3 +24,7 @@
 .dropdown-content div:hover {
     background-color: #f1f1f1;
 }
+
+#search-history-list::-webkit-scrollbar {
+    display: none;
+}
