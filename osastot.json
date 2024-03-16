@@ -47,6 +47,64 @@
                         "location": 506
                     }
                 }
+            },
+            "Kodinkoneet": {
+                "location": 3907,
+                "alakategoriat": {
+                    "Astianpesukoneet": {
+                        "location": 509
+                    }
+                }
+            },
+            "Puhelimet ja tarvikkeet": {
+                "location": 3217,
+                "alakategoriat": {
+                    "Matkapuhelimet": {
+                        "location": 39
+                    }
+                }
+            },
+            "Tietotekniikka": {
+                "location": 3215,
+                "alakategoriat": {
+                    "Kannettavat tietokoneet": {
+                        "location": 43
+                    }
+                }
+            }
+        }
+    },
+    "Eläimet ja eläintarvikkeet": {
+        "location": 77,
+        "kategoriat": {
+            "Kodin pienkoneet": {
+                "location": 3216,
+                "alakategoriat": {
+                    "Akvaariot": {
+                        "location": 3976
+                    }
+                }
+            }
+        }
+    },
+    "Huonekalut ja sisustus": {
+        "location": 78,
+        "kategoriat": {
+            "Hyllyt ja lipastot": {
+                "location": 8345,
+                "alakategoriat": {
+                    "Lipastot": {
+                        "location": 221
+                    }
+                }
+            }
+        }
+    },
+    "Koti, puutarha ja rakentaminen": {
+        "location": 67,
+        "kategoriat": {
+            "Autotallin ovet ja kalusteet": {
+                "location": 8348
             }
         }
     }
