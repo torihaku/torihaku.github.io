@@ -58,7 +58,10 @@
             </div>
         </div>
 
-        <ul id="search-history-list" class="overflow-x-scroll flex flex-row"></ul>
+        <div id="hakuhistoria" class="hidden">
+            <p class="font-bold px-6 mb-2">Aiemmat haut:</p>
+            <ul id="search-history-list" class="overflow-x-scroll flex flex-row"></ul>
+        </div>
 
         <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 px-6 md:w-3/5 md:mx-auto">
             <div class="w-full shadow md:shadow-none relative">
@@ -119,8 +122,8 @@
         </div>
     </div>
 
-<div id="modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full px-6">
-    <div class="relative top-1/2 -translate-y-1/2 p-6 border w-96 shadow-lg rounded-md bg-white w-auto">
+<div id="modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full p-6">
+    <div class="relative top-1/2 -translate-y-1/2 p-6 w-96 shadow-lg rounded-md bg-white w-auto max-h-full overflow-y-scroll">
         <div class="mt-3 text-left">
             <h3 class="leading-6 font-black text-2xl mb-4">Lisätietoa</h3>
             <div class="mt-2 leading-tight">
@@ -129,6 +132,7 @@
                 <p class="mt-3">Tehdyt haut tallennetaan paikallisesti selaimesi välimuistiin, jotta voit helposti palata niihin.</p>
                 <p class="mt-3">Palvelu <span class="font-bold">ei tallenna</span> tehtyjä hakuja.</p>
                 <p class="mt-3">Helpoin tapa käyttää palvelua on lisätä se suoraan puhelimesi kotinäytölle.</p>
+                <p class="mt-3">Jos havaitset ongelmia ilmoitathan niistä <a href="https://github.com/torihaku/torihaku.github.io/issues" class="underline">GitHubissa</a>, kiitos.</p>
                 <p class="mt-3">Tämä palvelu on itsenäisesti kehitetty eikä se ole virallisesti yhteydessä Tori.fi-palveluun, Schibsted-konserniin tai mihinkään niiden tytäryhtiöihin. Tämän palvelun kehittäjät tai tämän palvelun tarjoajat eivät ole missään suhteessa Tori.fi-palveluun tai Schibsted-konserniin, eikä heillä ole minkäänlaista virallista yhteyttä tai kumppanuutta näiden organisaatioiden kanssa.</p>
             </div>
             <div class="items-center mt-8 text-center">

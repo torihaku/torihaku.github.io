@@ -125,6 +125,11 @@ $(document).ready(function() {
         var listElement = $("#search-history-list");
         listElement.empty(); // Tyhjennä lista
     
+        if (searches.length != 0) {
+            $("#hakuhistoria").removeClass("hidden");
+
+        }
+
         searches.forEach(function(search) {
             var link = $("<a>").attr("href", search.url).attr("target", "_blank");
 
@@ -144,7 +149,7 @@ $(document).ready(function() {
                 link.append($("<span>").text(`Tyyppi: ${search.tradeTypes}`), $("<br>"));
             }
 
-            var listItem = $("<li>").addClass("text-sm p-2 mb-2 bg-red-100 rounded aspect-[5/4] md:aspect-video md:w-2/12 mr-4 w-1/2 flex-none overflow-hidden").append(link);
+            var listItem = $("<li>").addClass("text-sm px-3 py-2 bg-red-200 rounded-xl aspect-[5/4] md:aspect-video md:w-2/12 mr-4 w-1/2 flex-none overflow-hidden").append(link);
             listElement.append(listItem);
 
         });
