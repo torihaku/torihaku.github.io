@@ -21,7 +21,7 @@ $(document).ready(function(){
                     });
                     const span = $('<span>').text(optionText);
                     // Päivitetään labelin luokka tason mukaan
-                    const labelClass = 'px-2 py-1 flex' + (level === 1 ? ' pl-6' : '');
+                    const labelClass = 'px-2 py-1 flex' + (level === 1 ? ' pl-6' : '')  + (level === 2 ? ' pl-12' : '');
                     const label = $('<label>', {
                         class: labelClass
                     }).append(checkbox).append(span);
@@ -93,7 +93,7 @@ $(document).ready(function(){
                     });
                     const span = $('<span>').text(optionText);
                     // Päivitetään labelin luokka tason mukaan
-                    const labelClass = 'px-2 py-1 flex items-start' + (level === 1 ? ' pl-6' : '') + (level === 2 ? ' pl-12' : '');
+                    const labelClass = 'px-2 py-1 flex items-start' + (level === 1 ? ' pl-6' : '') + (level === 2 ? ' pl-12 hidden' : '');
                     const label = $('<label>', {
                         class: labelClass
                     }).append(checkbox).append(span);

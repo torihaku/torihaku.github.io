@@ -1,4 +1,194 @@
 {
+    "Ahvenanmaa": {
+        "location": 100015,
+        "kunnat": {
+          "Brändö": {
+              "location": 110035,
+              "osat": {
+              }
+          },
+          "Finström": {
+              "location": 110060,
+              "osat": {
+              }
+          },
+          "Kökar": {
+              "location": 110318,
+              "osat": {
+              }
+          },
+          "Maarianhamina": {
+              "location": 110478,
+              "osat": {
+              }
+          }
+        }
+    },
+    "Etelä-Karjala": {
+        "location": 100014,
+        "kunnat": {
+          "Imatra": {
+              "location": 110153,
+              "osat": {
+              }
+          },
+          "Lappeenranta": {
+              "location": 110405,
+              "osat": {
+              }
+          },
+          "Lemi": {
+              "location": 110416,
+              "osat": {
+              }
+          },
+          "Luumäki": {
+              "location": 110441,
+              "osat": {
+              }
+          },
+          "Parikkala": {
+              "location": 110580,
+              "osat": {
+              }
+          },
+          "Rautjärvi": {
+              "location": 110689,
+              "osat": {
+              }
+          },
+          "Ruokolahti": {
+              "location": 110700,
+              "osat": {
+              }
+          },
+          "Savitaipale": {
+              "location": 110739,
+              "osat": {
+              }
+          },
+          "Taipalsaari": {
+              "location": 110831,
+              "osat": {
+              }
+          }
+        }
+    },
+    "Etelä-Pohjanmaa": {
+        "location": 100006,
+        "kunnat": {
+          "Alajärvi": {
+              "location": 110005,
+              "osat": {
+              }
+          },
+          "Alavus": {
+              "location": 110010,
+              "osat": {
+              }
+          },
+          "Evijärvi": {
+              "location": 110052,
+              "osat": {
+              }
+          },
+          "Ilmajoki": {
+              "location": 110145,
+              "osat": {
+              }
+          },
+          "Isojoki": {
+              "location": 110151,
+              "osat": {
+              }
+          },
+          "Isokyrö": {
+              "location": 110152,
+              "osat": {
+              }
+          },
+          "Karijoki": {
+              "location": 110218,
+              "osat": {
+              }
+          },
+          "Kauhajoki": {
+              "location": 110232,
+              "osat": {
+              }
+          },
+          "Kauhava": {
+              "location": 110233,
+              "osat": {
+              }
+          },
+          "Kuortane": {
+              "location": 110300,
+              "osat": {
+              }
+          },
+          "Kurikka": {
+              "location": 110301,
+              "osat": {
+              }
+          },
+          "Lappajärvi": {
+              "location": 110403,
+              "osat": {
+              }
+          },
+          "Lapua": {
+              "location": 110408,
+              "osat": {
+              }
+          },
+          "Seinäjoki": {
+              "location": 110743,
+              "osat": {
+              }
+          },
+          "Soini": {
+              "location": 110759,
+              "osat": {
+              }
+          },
+          "Teuva": {
+              "location": 110846,
+              "osat": {
+              }
+          },
+          "Vimpeli": {
+              "location": 110934,
+              "osat": {
+              }
+          },
+          "Ähtäri": {
+              "location": 110989,
+              "osat": {
+              }
+          }
+        }
+    },
+    "Etelä-Savo": {
+        "location": 100013,
+        "kunnat": {
+          "Enonkoski": {
+              "location": 110046,
+              "osat": {
+              }
+          }
+        }
+    },
+    "Kainuu": {
+        "location": 100003,
+        "kunnat": {
+          "Hyrynsalmi": {
+              "location": 110105,
+              "osat": {
+              }
+          }
+        }
+    },
     "Kanta-Häme": {
       "location": 100017,
       "kunnat": {
@@ -66,6 +256,130 @@
               "location": 110074,
               "osat": {
               }
+          }
+        }
+    },
+    "Keski-Suomi": {
+        "location": 100007,
+        "kunnat": {
+          "Hankasalmi": {
+              "location": 110077,
+              "osat": {
+              }
+          }
+        }
+    },
+    "Kymenlaakso": {
+        "location": 100020,
+        "kunnat": {
+          "Hamina": {
+              "location": 110075,
+              "osat": {
+              }
+          }
+        }
+    },
+    "Lappi": {
+        "location": 100001,
+        "kunnat": {
+          "Enontekiö": {
+              "location": 110047,
+              "osat": {
+              }
+          }
+        }
+    },
+    "Pirkanmaa": {
+        "location": 100011,
+        "kunnat": {
+          "Akaa": {
+              "location": 110020,
+              "osat": {
+              }
+          }
+        }
+    },
+    "Pohjanmaa": {
+        "location": 100005,
+        "kunnat": {
+          "Kaskinen": {
+              "location": 110231,
+              "osat": {
+              }
+          }
+        }
+    },
+    "Pohjois-Karjala": {
+        "location": 100009,
+        "kunnat": {
+          "Heinävesi": {
+              "location": 110090,
+              "osat": {
+              }
+          }
+        }
+    },
+    "Pohjois-Pohjanmaa": {
+        "location": 100002,
+        "kunnat": {
+          "Alavieska": {
+              "location": 110009,
+              "osat": {
+              }
+          }
+        }
+    },
+    "Pohjois-Savo": {
+        "location": 100008,
+        "kunnat": {
+          "Iisalmi": {
+              "location": 110140,
+              "osat": {
+              }
+          }
+        }
+    },
+    "Päijät-Häme": {
+        "location": 100012,
+        "kunnat": {
+          "Asikkala": {
+              "location": 110016,
+              "osat": {
+              }
+          }
+        }
+    },
+    "Satakunta": {
+        "location": 100010,
+        "kunnat": {
+          "Eura": {
+              "location": 110050,
+              "osat": {
+              }
+          }
+        }
+    },
+    "Uusimaa": {
+        "location": 100018,
+        "kunnat": {
+          "Askola": {
+              "location": 110018,
+              "osat": {
+              }
+          }
+        }
+    },
+    "Varsinais-Suomi": {
+        "location": 100016,
+        "kunnat": {
+          "Aura": {
+              "location": 110019
+          },
+          "Kaarina": {
+              "location": 110202
+          },
+          "Kemiönsaari": {
+              "location": 110322
           }
         }
     }

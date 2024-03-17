@@ -42,16 +42,16 @@
         }  
     </style>
 </head>
-<body>
-    <div class="container mx-auto pb-6 space-y-4 md:border md:my-12 md:shadow-lg md:border-gray-300 md:rounded-xl">
-        <div class="pt-10 pb-10 text-center flex flex-col items-center bg-red-400 text-white px-6">
+<body class="md:bg-gray-100">
+    <div class="container mx-auto pb-6 space-y-4 md:border md:my-8 md:shadow-lg md:border-gray-300 md:rounded-xl md:max-w-screen-lg bg-white">
+        <div class="py-6 text-center flex flex-col items-center bg-red-400 text-white px-6">
             <h2 class="font-black text-2xl">yksinkertaisempi</h2>
             <h1 class="font-black text-5xl mb-4">Torihaku</h1>
             <p class="text-lg leading-tight text-sm w-4/5">Tervetuloa käyttämään yksinkertaistettua Tori.fi-hakua. <a href="#" id="open-modal" class="underline text-red-900">Lue lisää</a>
             </p>
         </div>
 
-        <div class="px-6 md:w-3/5 md:mx-auto pt-2">
+        <div class="px-6 md:max-w-xl md:mx-auto pt-2 md:py-6">
             <div class="border border-gray-300 flex items-center relative rounded">
                 <input type="text" id="hakusana" placeholder="Hae Torista" class="pl-5 pr-14 py-4 w-full rounded text-xl">
                 <span class="material-symbols-outlined text-gray-900 absolute right-2 top-1/2 -translate-y-1/2 text-4xl">search</span>
@@ -60,15 +60,15 @@
 
         <div id="hakuhistoria" class="hidden">
             <p class="font-bold px-6 mb-2">Aiemmat haut:</p>
-            <ul id="search-history-list" class="overflow-x-scroll flex flex-row"></ul>
+            <ul id="search-history-list" class="overflow-x-scroll flex flex-row pb-[3px]"></ul>
         </div>
 
-        <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 px-6 md:w-3/5 md:mx-auto">
-            <div class="w-full shadow md:shadow-none relative">
-                <div id="button-osasto" class="md:hidden flex justify-between w-full pl-3 pr-2 py-2 border border-gray-300 rounded">
-                    <p>Valitse osasto</p><span class="material-symbols-outlined text-gray-400">unfold_more</span>
+        <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 px-6 md:mx-auto">
+            <div class="w-full shadow relative">
+                <div id="button-osasto" class="flex justify-between w-full pl-3 pr-2 py-2 border border-gray-300 rounded">
+                    <p>Valitse osasto</p><span class="material-symbols-outlined text-gray-400">keyboard_arrow_down</span>
                 </div>
-                <div id="dropdown-osasto" class="border border-gray-300 p-2 rounded shadow-lg md:shadow-none absolute md:relative bottom-0 translate-y-full md:translate-y-0 w-full left-0 bg-white hidden md:block z-50">
+                <div id="dropdown-osasto" class="border border-gray-300 p-2 rounded shadow-lg md:shadow-none absolute bottom-0 translate-y-full w-full left-0 bg-white hidden z-50">
                     <div class="search-container w-full mb-2 relative">
                         <input type="text" id="searchInput-osasto" placeholder="Hae osastoa" class="w-full border border-gray-300 rounded px-3 py-2">
                         <div class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center"><span class="material-symbols-outlined text-gray-700 text-base">close</span></div>
@@ -79,10 +79,10 @@
             </div>
 
             <div class="w-full shadow md:shadow-none relative">
-                <div id="button-sijainti" class="flex justify-between w-full pl-3 pr-2 py-2 border border-gray-300 rounded md:hidden">
-                    <p>Valitse sijainti</p><span class="material-symbols-outlined text-gray-400">unfold_more</span>
+                <div id="button-sijainti" class="flex justify-between w-full pl-3 pr-2 py-2 border border-gray-300 rounded">
+                    <p>Valitse sijainti</p><span class="material-symbols-outlined text-gray-400">keyboard_arrow_down</span>
                 </div>
-                <div id="dropdown-sijainti" class="border border-gray-300 p-2 rounded shadow-lg absolute bottom-0 translate-y-full w-full left-0 bg-white hidden md:block md:relative md:translate-y-0 md:shadow-none">
+                <div id="dropdown-sijainti" class="border border-gray-300 p-2 rounded shadow-lg absolute bottom-0 translate-y-full w-full left-0 bg-white hidden">
                     <div class="search-container w-full mb-2">
                         <input type="text" id="searchInput" placeholder="Hae sijaintia" class="w-full border border-gray-300 rounded px-3 py-2">
                     </div>
@@ -92,7 +92,7 @@
             </div>
         </div>
         
-        <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 px-6 md:w-3/5 md:mx-auto">
+        <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 px-6 md:mx-auto">
             <div class="flex flex-col px-3 py-2 border border-gray-300 rounded space-y-2 md:flex-1">
                 <p class="font-bold">Myyjä:</p>
                 <div class="flex">
@@ -110,7 +110,7 @@
             </div>
         </div>
 
-        <div class="px-6 md:w-3/5 md:mx-auto">
+        <div class="px-6 md:max-w-xl md:mx-auto md:pt-6">
             <div id="button-hae" class="rounded px-4 py-3 bg-red-400 text-center text-white text-xl flex space-x-2 items-center justify-center">
                 <span class="material-symbols-outlined text-gray-900 text-3xl text-white">search</span>
                 <p class="font-bold">Hae</p>
@@ -118,7 +118,7 @@
         </div>
 
         <div class="px-6 text-gray-400 text-center pt-8">
-            <p class="text-xs">Tämä palvelu on itsenäisesti kehitetty eikä se ole virallisesti yhteydessä Tori.fi-palveluun, Schibsted-konserniin tai mihinkään niiden tytäryhtiöihin. Tämän palvelun kehittäjät tai tämän palvelun tarjoajat eivät ole missään suhteessa Tori.fi-palveluun tai Schibsted-konserniin, eikä heillä ole minkäänlaista virallista yhteyttä tai kumppanuutta näiden organisaatioiden kanssa.</p>
+            <p class="text-xs">Tämä palvelu on itsenäisesti kehitetty eikä se ole virallisesti yhteydessä Tori.fi-palveluun, Schibsted-konserniin tai mihinkään sen tytäryhtiöistä. Tämän palvelun kehittäjät tai tämän palvelun tarjoajat eivät ole missään suhteessa Tori.fi-palveluun tai Schibsted-konserniin, eikä heillä ole minkäänlaista virallista yhteyttä tai kumppanuutta näiden organisaatioiden kanssa.</p>
         </div>
     </div>
 
@@ -133,7 +133,7 @@
                 <p class="mt-3">Palvelu <span class="font-bold">ei tallenna</span> tehtyjä hakuja.</p>
                 <p class="mt-3">Helpoin tapa käyttää palvelua on lisätä se suoraan puhelimesi kotinäytölle.</p>
                 <p class="mt-3">Jos havaitset ongelmia ilmoitathan niistä <a href="https://github.com/torihaku/torihaku.github.io/issues" class="underline">GitHubissa</a>, kiitos.</p>
-                <p class="mt-3">Tämä palvelu on itsenäisesti kehitetty eikä se ole virallisesti yhteydessä Tori.fi-palveluun, Schibsted-konserniin tai mihinkään niiden tytäryhtiöihin. Tämän palvelun kehittäjät tai tämän palvelun tarjoajat eivät ole missään suhteessa Tori.fi-palveluun tai Schibsted-konserniin, eikä heillä ole minkäänlaista virallista yhteyttä tai kumppanuutta näiden organisaatioiden kanssa.</p>
+                <p class="mt-3">Tämä palvelu on itsenäisesti kehitetty eikä se ole virallisesti yhteydessä Tori.fi-palveluun, Schibsted-konserniin tai mihinkään sen tytäryhtiöistä. Tämän palvelun kehittäjät tai tämän palvelun tarjoajat eivät ole missään suhteessa Tori.fi-palveluun tai Schibsted-konserniin, eikä heillä ole minkäänlaista virallista yhteyttä tai kumppanuutta näiden organisaatioiden kanssa.</p>
             </div>
             <div class="items-center mt-8 text-center">
                 <button id="close-modal" class="px-4 py-2 bg-red-400 text-white rounded hover:bg-red-500">Sulje</button>

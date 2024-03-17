@@ -17,12 +17,17 @@
             "alakategoriat": {
             }
         },
-        "Antiikki ja taide": {
+        "Taide": {
             "location": 5177,
             "alakategoriat": {
                 "Akryylimaalaukset": {
                     "location": 385
                 }
+            }
+        },
+        "Muu antiikki": {
+            "location": 5175,
+            "alakategoriat": {
             }
         }
       }
@@ -32,6 +37,36 @@
         "kategoriat": {
             "Asuntoauto- ja matkailuautotarvikkeet": {
                 "location": 70,
+                "alakategoriat": {
+                }
+            },
+            "Auton osat": {
+                "location": 82,
+                "alakategoriat": {
+                }
+            },
+            "Mototarvikkeet ja varaosat": {
+                "location": 20,
+                "alakategoriat": {
+                }
+            },
+            "Mönkijän varaosat": {
+                "location": 3975,
+                "alakategoriat": {
+                }
+            },
+            "Trailerit": {
+                "location": 80,
+                "alakategoriat": {
+                }
+            },
+            "Veneen varaosat": {
+                "location": 30,
+                "alakategoriat": {
+                }
+            },
+            "Muut autotarvikkeet": {
+                "location": 3974,
                 "alakategoriat": {
                 }
             }
@@ -87,18 +122,103 @@
                         "location": 65
                     }
                 }
+            },
+            "Ääni ja kuva": {
+                "location": 3906,
+                "alakategoriat": {
+                    "Blu-ray-soittimet": {
+                        "location": 56
+                    }
+                }
+            },
+            "Muu elektroniikka ja kodinkoneet": {
+                "location": 3213,
+                "alakategoriat": {
+                }
             }
         }
     },
     "Eläimet ja eläintarvikkeet": {
         "location": 77,
         "kategoriat": {
-            "Kodin pienkoneet": {
-                "location": 3216,
+            "Akvaariot": {
+                "location": 3976,
                 "alakategoriat": {
-                    "Akvaariot": {
-                        "location": 3976
-                    }
+                }
+            },
+            "Eläinten ruokinta, hoito, jalostus ja tallipaikat": {
+                "location": 5186,
+                "alakategoriat": {
+                }
+            },
+            "Hevoset": {
+                "location": 5190,
+                "alakategoriat": {
+                }
+            },
+            "Hevostarvikkeet ja ratsastustarvikkeet": {
+                "location": 5195,
+                "alakategoriat": {
+                }
+            },
+            "Hyönteiset ja hämähäkit": {
+                "location": 5208,
+                "alakategoriat": {
+                }
+            },
+            "Häkit": {
+                "location": 3977,
+                "alakategoriat": {
+                }
+            },
+            "Jyrsijät ja kanit": {
+                "location": 5207,
+                "alakategoriat": {
+                }
+            },
+            "Kalat": {
+                "location": 5206,
+                "alakategoriat": {
+                }
+            },
+            "Kissat": {
+                "location": 5191,
+                "alakategoriat": {
+                }
+            },
+            "Kissatarvikkeet": {
+                "location": 5194,
+                "alakategoriat": {
+                }
+            },
+            "Koirat": {
+                "location": 5192,
+                "alakategoriat": {
+                }
+            },
+            "Koiratarvikkeet": {
+                "location": 5193,
+                "alakategoriat": {
+                }
+            },
+            "Linnut": {
+                "location": 5205,
+                "alakategoriat": {
+                }
+            },
+            "Matelijat": {
+                "location": 5210,
+                "alakategoriat": {
+                }
+            },
+            "Muut eläimet": {
+                "location": 5183,
+                "alakategoriat": {
+                }
+            },
+            "Muut eläintarvikkeet": {
+                "location": 5185,
+                "alakategoriat": {
                 }
             }
         }
@@ -109,9 +229,51 @@
             "Hyllyt ja lipastot": {
                 "location": 8345,
                 "alakategoriat": {
-                    "Lipastot": {
-                        "location": 221
-                    }
+                }
+            },
+            "Kaapit": {
+                "location": 5198,
+                "alakategoriat": {
+                }
+            },
+            "Keittiötarvikkeet ja astiat": {
+                "location": 5223,
+                "alakategoriat": {
+                }
+            },
+            "Koriste- ja sisustusesineet": {
+                "location": 5222,
+                "alakategoriat": {
+                }
+            },
+            "Makuuhuone": {
+                "location": 5197,
+                "alakategoriat": {
+                }
+            },
+            "Matot ja tekstiilit": {
+                "location": 5180,
+                "alakategoriat": {
+                }
+            },
+            "Pöydät ja tuolit": {
+                "location": 5196,
+                "alakategoriat": {
+                }
+            },
+            "Sohvat ja lepotuolit": {
+                "location": 7756,
+                "alakategoriat": {
+                }
+            },
+            "Valaisimet": {
+                "location": 5181,
+                "alakategoriat": {
+                }
+            },
+            "Muut huonekalut ja sisustus": {
+                "location": 3971,
+                "alakategoriat": {
                 }
             }
         }
@@ -121,6 +283,33 @@
         "kategoriat": {
             "Autotallin ovet ja kalusteet": {
                 "location": 8348
+            },
+            "Hälyttimet ja turvallisuus": {
+                "location": 8347
+            },
+            "Keittiöt": {
+                "location": 3900
+            },
+            "Kylpyhuone ja sauna": {
+                "location": 7749
+            },
+            "Lämmitys ja ilmanvaihto": {
+                "location": 5218
+            },
+            "Mökkitarvikkeet": {
+                "location": 3968
+            },
+            "Piha ja puutarha": {
+                "location": 3901
+            },
+            "Rakennustarvikkeet ja remontointi": {
+                "location": 3899
+            },
+            "Työkalut": {
+                "location": 5219
+            },
+            "Muu koti, puutarha ja rakentaminen": {
+                "location": 3969
             }
         }
     },
@@ -129,6 +318,33 @@
         "kategoriat": {
             "Lasten kalusteet": {
                 "location": 3916
+            },
+            "Lasten kengät": {
+                "location": 3915
+            },
+            "Lasten kirjat": {
+                "location": 8369
+            },
+            "Lasten vaatteet": {
+                "location": 3913
+            },
+            "Lastentarvikkeet ja turvallisuus": {
+                "location": 3918
+            },
+            "Lastenvaunut ja rattaat": {
+                "location": 3914
+            },
+            "Lelut": {
+                "location": 3912
+            },
+            "Turvaistuimet": {
+                "location": 3911
+            },
+            "Äitiysvaatteet": {
+                "location": 3948
+            },
+            "Muut": {
+                "location": 3970
             }
         }
     },
@@ -137,6 +353,39 @@
         "kategoriat": {
             "Esitystekniikka": {
                 "location": 3110
+            },
+            "Kauppa ja jälleenmyynti": {
+                "location": 3108
+            },
+            "Konetekniikka ja varaosat": {
+                "location": 3112
+            },
+            "Kontit ja työmaakopit": {
+                "location": 3111
+            },
+            "Maatalous": {
+                "location": 3114
+            },
+            "Rahti ja tavarankuljetus": {
+                "location": 3113
+            },
+            "Rakentaminen ja remontointi": {
+                "location": 3102
+            },
+            "Suurtalouskeittiö ja ravintola-ala": {
+                "location": 3103
+            },
+            "Terveys ja ensiapu": {
+                "location": 8343
+            },
+            "Toimistotarvikkeet ja toimistokalusteet": {
+                "location": 3105
+            },
+            "Web-domainit ja puhelinnumerot": {
+                "location": 3106
+            },
+            "Muu liiketoiminta ja palvelut": {
+                "location": 3104
             }
         }
     },
@@ -145,6 +394,48 @@
         "kategoriat": {
             "Extreme-urheilu": {
                 "location": 3938
+            },
+            "Fanituottee": {
+                "location": 3937
+            },
+            "Golf": {
+                "location": 5164
+            },
+            "Hiihto ja laskettelu": {
+                "location": 3962
+            },
+            "Jääkiekko ja luistelu": {
+                "location": 8346
+            },
+            "Kuntosalilaitteet": {
+                "location": 5166
+            },
+            "Metsästys, kalastus ja ulkoilu": {
+                "location": 3964
+            },
+            "Osallistujaliput": {
+                "location": 3960
+            },
+            "Pallopelit": {
+                "location": 3961
+            },
+            "Pyöräily": {
+                "location": 3963
+            },
+            "Ravintolisät": {
+                "location": 8281
+            },
+            "Urheilukellot ja aktiivisuusrannekkeet": {
+                "location": 3967
+            },
+            "Urheiluvaatteet ja -kengät": {
+                "location": 3940
+            },
+            "Vesiurheilu": {
+                "location": 7738
+            },
+            "Muu urheilu": {
+                "location": 3966
             }
         }
     },
@@ -153,6 +444,36 @@
         "kategoriat": {
             "Ihonhoito ja hiustenhoito": {
                 "location": 8280
+            },
+            "Kellot ja rannekellot": {
+                "location": 3945
+            },
+            "Kengät": {
+                "location": 3949
+            },
+            "Korut ja korurasiat": {
+                "location": 7748
+            },
+            "Kosmetiikka": {
+                "location": 8282
+            },
+            "Laukut ja lompakot": {
+                "location": 3946
+            },
+            "Miesten vaatteet": {
+                "location": 3950
+            },
+            "Naamiaisasut": {
+                "location": 8349
+            },
+            "Naisten vaatteet": {
+                "location": 3941
+            },
+            "Silmälasit ja linssit": {
+                "location": 8344
+            },
+            "Muut vaatteet, kosmetiikka ja asusteet": {
+                "location": 5204
             }
         }
     },
@@ -161,6 +482,36 @@
         "kategoriat": {
             "Elintarvikkeet": {
                 "location": 3972
+            },
+            "Keräily": {
+                "location": 285
+            },
+            "Kirjat ja lehdet": {
+                "location": 5209
+            },
+            "Käsityöt": {
+                "location": 7734
+            },
+            "Matkat ja matkaliput": {
+                "location": 7735
+            },
+            "Musiikki ja elokuvat": {
+                "location": 3922
+            },
+            "Pienoismallit ja rakennussarjat": {
+                "location": 7732
+            },
+            "Radio-ohjattavat": {
+                "location": 7733
+            },
+            "Seurapelit": {
+                "location": 5203
+            },
+            "Soittimet": {
+                "location": 92
+            },
+            "Muu viihde ja harrastukset": {
+                "location": 3973
             }
         }
     }
