@@ -1,5 +1,15 @@
 $(document).ready(function() {
     $("#button-hae").click(function() {
+        makeSearch();
+    });
+    $("#hakusana").keypress(function(event) {
+        if (event.which == 13) {
+            event.preventDefault();
+            makeSearch();
+        }
+    });
+
+    function makeSearch() {
         var dealerSegments = [];
         var tradeTypes = [];
         var locations = [];
@@ -86,7 +96,7 @@ $(document).ready(function() {
 
         // Ohjataan käyttäjä muodostettuun osoitteeseen
         window.location.href = baseUrl;
-    });
+    }
 
     function saveSearchToHistory(searchDetails) {
         var dealerSegmentsText = searchDetails.dealerSegments.map(function(segment) {
@@ -136,6 +146,8 @@ $(document).ready(function() {
 
             if (search.hakusana) {
                 link.append($('<span class="font-bold text-lg">').text(search.hakusana), $("<br>"));
+            } else {
+                link.append($('<span class="font-bold text-lg text-gray-300">').text('Ei hakusanaa'), $("<br>"));
             }
             if (search.osasto) {
                 link.append($("<span>").text(`${search.osasto}`), $("<br>"));

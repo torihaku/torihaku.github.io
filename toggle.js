@@ -5,6 +5,7 @@ $(document).ready(function() {
         event.stopPropagation();
         // Togglettaa dropdownin näkyvyyden
         $("#dropdown-sijainti").toggle();
+        $("#button-sijainti span").toggleClass('rotate-180');
     });
 
     // Klikkauskuuntelija dropdownille, estää dropdownin sulkemisen klikattaessa sitä itseään
@@ -15,6 +16,8 @@ $(document).ready(function() {
     // Klikkauskuuntelija documentille, sulkee dropdownin, jos klikattu muualla kuin nappulassa tai dropdownissa
     $(document).click(function() {
         $("#dropdown-sijainti").hide();
+        $("#button-sijainti span").removeClass('rotate-180');
+
     });
 });
 
@@ -26,6 +29,7 @@ $(document).ready(function() {
         event.stopPropagation();
         // Togglettaa dropdownin näkyvyyden
         $("#dropdown-osasto").toggle();
+        $("#button-osasto span").toggleClass('rotate-180');
     });
 
     // Klikkauskuuntelija dropdownille, estää dropdownin sulkemisen klikattaessa sitä itseään
@@ -36,14 +40,15 @@ $(document).ready(function() {
     // Klikkauskuuntelija documentille, sulkee dropdownin, jos klikattu muualla kuin nappulassa tai dropdownissa
     $(document).click(function() {
         $("#dropdown-osasto").hide();
+        $("#button-osasto span").removeClass('rotate-180');
     });
 });
 
 $(document).ready(function() {
     // Kuuntele klikkaustapahtumia #dropdown-osasto sisällä oleville span-elementeille
-    $("#dropdown-osasto span").click(function() {
+    $("#hakukentta span").click(function() {
         // Määritä tekstikenttä
-        var textInput = $("#dropdown-osasto input[type='text']");
+        var textInput = $("#hakukentta input[type='text']");
         // Tyhjennä tekstikentän sisältö
         textInput.val('');
         // Aseta kohdistin (focus) tekstikenttään
