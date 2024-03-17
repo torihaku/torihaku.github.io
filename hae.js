@@ -146,11 +146,11 @@ $(document).ready(function() {
 
             if (search.hakusana) {
                 link.append($('<span class="font-bold text-lg">').text(search.hakusana), $("<br>"));
-            } else {
-                link.append($('<span class="font-bold text-lg text-gray-300">').text('Ei hakusanaa'), $("<br>"));
             }
-            if (search.osasto) {
+            if (search.osasto && search.hakusana) {
                 link.append($("<span>").text(`${search.osasto}`), $("<br>"));
+            } else if (search.osasto) {
+                link.append($('<span class="font-bold text-lg">').text(`${search.osasto}`), $("<br>"));
             }
             if (search.sijainti) {
                 link.append($("<span>").text(`${search.sijainti}`), $("<br>"));

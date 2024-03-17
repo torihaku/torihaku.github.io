@@ -176,6 +176,61 @@
               "location": 110046,
               "osat": {
               }
+          },
+          "Hirvensalmi": {
+              "location": 110097,
+              "osat": {
+              }
+          },
+          "Juva": {
+              "location": 110178,
+              "osat": {
+              }
+          },
+          "Kangasniemi": {
+              "location": 110213,
+              "osat": {
+              }
+          },
+          "Mikkeli": {
+              "location": 110491,
+              "osat": {
+              }
+          },
+          "Mäntyharju": {
+              "location": 110507,
+              "osat": {
+              }
+          },
+          "Pertunmaa": {
+              "location": 110588,
+              "osat": {
+              }
+          },
+          "Pieksämäki": {
+              "location": 110593,
+              "osat": {
+              }
+          },
+          "Puumala": {
+              "location": 110623,
+              "osat": {
+              }
+          },
+          "Rantasalmi": {
+              "location": 110681,
+              "osat": {
+              }
+          },
+          "Savonlinna": {
+              "location": 110740,
+              "osat": {
+              }
+          },
+          "Sulkava": {
+              "location": 110768,
+              "osat": {
+              }
           }
         }
     },
@@ -184,6 +239,41 @@
         "kunnat": {
           "Hyrynsalmi": {
               "location": 110105,
+              "osat": {
+              }
+          },
+          "Kajaani": {
+              "location": 110205,
+              "osat": {
+              }
+          },
+          "Kuhmo": {
+              "location": 110290,
+              "osat": {
+              }
+          },
+          "Paltamo": {
+              "location": 110578,
+              "osat": {
+              }
+          },
+          "Puolanka": {
+              "location": 110620,
+              "osat": {
+              }
+          },
+          "Ristijärvi": {
+              "location": 110697,
+              "osat": {
+              }
+          },
+          "Sotkamo": {
+              "location": 110765,
+              "osat": {
+              }
+          },
+          "Suomussalmi": {
+              "location": 110777,
               "osat": {
               }
           }
@@ -252,11 +342,46 @@
     "Keski-Pohjanmaa": {
         "location": 100004,
         "kunnat": {
-          "Halsua": {
-              "location": 110074,
-              "osat": {
-              }
-          }
+            "Halsua": {
+                "location": 110074,
+                "osat": {
+                }
+            },
+            "Kannus": {
+                "location": 110217,
+                "osat": {
+                }
+            },
+            "Kaustinen": {
+                "location": 110236,
+                "osat": {
+                }
+            },
+            "Kokkola": {
+                "location": 110272,
+                "osat": {
+                }
+            },
+            "Lestijärvi": {
+                "location": 110421,
+                "osat": {
+                }
+            },
+            "Perho": {
+                "location": 110584,
+                "osat": {
+                }
+            },
+            "Toholampi": {
+                "location": 110849,
+                "osat": {
+                }
+            },
+            "Veteli": {
+                "location": 110924,
+                "osat": {
+                }
+            }
         }
     },
     "Keski-Suomi": {
@@ -264,6 +389,111 @@
         "kunnat": {
           "Hankasalmi": {
               "location": 110077,
+              "osat": {
+              }
+          },
+          "Joutsa": {
+              "location": 110172,
+              "osat": {
+              }
+          },
+          "Jyväskylä": {
+              "location": 110179,
+              "osat": {
+              }
+          },
+          "Jämsä": {
+              "location": 110182,
+              "osat": {
+              }
+          },
+          "Kannonkoski": {
+              "location": 110216,
+              "osat": {
+              }
+          },
+          "Kartstula": {
+              "location": 110226,
+              "osat": {
+              }
+          },
+          "Keuruu": {
+              "location": 110249,
+              "osat": {
+              }
+          },
+          "Kinnula": {
+              "location": 110256,
+              "osat": {
+              }
+          },
+          "Kivijärvi": {
+              "location": 110265,
+              "osat": {
+              }
+          },
+          "Konnevesi": {
+              "location": 110275,
+              "osat": {
+              }
+          },
+          "Kyyjärvi": {
+              "location": 110312,
+              "osat": {
+              }
+          },
+          "Laukaa": {
+              "location": 110410,
+              "osat": {
+              }
+          },
+          "Luhanka": {
+              "location": 110435,
+              "osat": {
+              }
+          },
+          "Multia": {
+              "location": 110495,
+              "osat": {
+              }
+          },
+          "Muurame": {
+              "location": 110500,
+              "osat": {
+              }
+          },
+          "Petäjävesi": {
+              "location": 110592,
+              "osat": {
+              }
+          },
+          "Pihtipudas": {
+              "location": 110601,
+              "osat": {
+              }
+          },
+          "Saarijärvi": {
+              "location": 110729,
+              "osat": {
+              }
+          },
+          "Toivakka": {
+              "location": 110850,
+              "osat": {
+              }
+          },
+          "Uurainen": {
+              "location": 110892,
+              "osat": {
+              }
+          },
+          "Viitasaari": {
+              "location": 110931,
+              "osat": {
+              }
+          },
+          "Äänekoski": {
+              "location": 110992,
               "osat": {
               }
           }
@@ -274,6 +504,31 @@
         "kunnat": {
           "Hamina": {
               "location": 110075,
+              "osat": {
+              }
+          },
+          "Kotka": {
+              "location": 110285,
+              "osat": {
+              }
+          },
+          "Kouvola": {
+              "location": 110286,
+              "osat": {
+              }
+          },
+          "Miehikkälä": {
+              "location": 110489,
+              "osat": {
+              }
+          },
+          "Pyhtää": {
+              "location": 110624,
+              "osat": {
+              }
+          },
+          "Virolahti": {
+              "location": 110935,
               "osat": {
               }
           }
@@ -366,6 +621,36 @@
               "location": 110018,
               "osat": {
               }
+          },
+          "Espoo": {
+              "location": 110049,
+              "osat": {
+              }
+          },
+          "Hanko": {
+              "location": 110078,
+              "osat": {
+              }
+          },
+          "Helsinki": {
+              "location": 110091,
+              "osat": {
+              }
+          },
+          "Hyvinkää": {
+              "location": 110106,
+              "osat": {
+              }
+          },
+          "Inkoo": {
+              "location": 110149,
+              "osat": {
+              }
+          },
+          "Järvenpää": {
+              "location": 110186,
+              "osat": {
+              }
           }
         }
     },
@@ -380,6 +665,78 @@
           },
           "Kemiönsaari": {
               "location": 110322
+          },
+          "Koski TI": {
+              "location": 110284
+          },
+          "Kustavi": {
+              "location": 110304
+          },
+          "Laitila": {
+              "location": 110400
+          },
+          "Lieto": {
+              "location": 110423
+          },
+          "Loimaa": {
+              "location": 110430
+          },
+          "Marttila": {
+              "location": 110480
+          },
+          "Masku": {
+              "location": 110481
+          },
+          "Mynämäki": {
+              "location": 110503
+          },
+          "Naantali": {
+              "location": 110529
+          },
+          "Nousiainen": {
+              "location": 110538
+          },
+          "Oripää": {
+              "location": 110561
+          },
+          "Paimio": {
+              "location": 110577
+          },
+          "Parainen": {
+              "location": 110445
+          },
+          "Pyhäranta": {
+              "location": 110631
+          },
+          "Pöytyä": {
+              "location": 110636
+          },
+          "Raisio": {
+              "location": 110680
+          },
+          "Rusko": {
+              "location": 110704
+          },
+          "Salo": {
+              "location": 110734
+          },
+          "Sauvo": {
+              "location": 110738
+          },
+          "Somero": {
+              "location": 110761
+          },
+          "Taivassalo": {
+              "location": 110833
+          },
+          "Turku": {
+              "location": 110853
+          },
+          "Uusikaupunki": {
+              "location": 110895
+          },
+          "Vehmaa": {
+              "location": 110918
           }
         }
     }
