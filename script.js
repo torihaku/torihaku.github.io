@@ -52,10 +52,10 @@ $(document).ready(function(){
         if (selectedLocations.length > 0) {
             // Jos yksi tai useampi valittu, yhdistä valittujen sijaintien nimet
             var locationsText = selectedLocations.join(", ");
-            $('#button-sijainti').text(locationsText);
+            $('#button-sijainti p').text(locationsText);
         } else {
             // Jos ei valintoja, aseta oletusteksti
-            $('#button-sijainti').text('Valitse sijainti');
+            $('#button-sijainti p').text('Valitse sijainti');
         }
     });
 
