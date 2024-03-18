@@ -145,12 +145,12 @@ $(document).ready(function() {
             var link = $('<a class="h-full w-full pr-4">').attr("href", search.url).attr("target", "_blank");
 
             if (search.hakusana) {
-                link.append($('<span class="font-bold text-lg">').text(search.hakusana), $("<br>"));
+                link.append($('<span class="font-bold text-lg leading-none">').text(search.hakusana), $("<br>"));
             }
             if (search.osasto && search.hakusana) {
                 link.append($("<span>").text(`${search.osasto}`), $("<br>"));
             } else if (search.osasto) {
-                link.append($('<span class="font-bold text-lg">').text(`${search.osasto}`), $("<br>"));
+                link.append($('<span class="font-bold text-lg leading-none">').text(`${search.osasto}`), $("<br>"));
             }
             if (search.sijainti) {
                 link.append($("<span>").text(`${search.sijainti}`), $("<br>"));
@@ -169,7 +169,7 @@ $(document).ready(function() {
                 displaySearchHistory(); // Päivitä hakuhistorian näyttö
             });
 
-            var listItem = $("<li>").addClass("relative text-sm px-3 py-2 shadow bg-white border border-gray-300 rounded-xl md:w-2/12 mr-4 w-3/5 flex-none overflow-hidden flex items-center").append(link).append(deleteButton);
+            var listItem = $("<li>").addClass("relative text-sm px-3 py-3 shadow bg-white border border-gray-300 rounded-xl md:w-2/12 mr-4 w-3/5 flex-none overflow-hidden flex items-center").append(link).append(deleteButton);
             listElement.append(listItem);
 
         });
