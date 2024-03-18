@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
@@ -41,12 +42,21 @@
             }
         }  
     </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y6YK874BBQ"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-Y6YK874BBQ');
+    </script>
 </head>
 <body class="md:bg-gray-100">
     <div class="container mx-auto pb-6 space-y-4 md:border md:my-8 md:shadow-lg md:border-gray-300 md:rounded-xl md:max-w-screen-lg bg-white">
-        <div class="py-6 text-center flex flex-col items-center bg-red-400 text-white px-6">
-            <h2 class="font-black text-2xl">yksinkertaisempi</h2>
-            <h1 class="font-black text-5xl mb-4">Torihaku</h1>
+        <div class="py-4 text-center flex flex-col items-center bg-red-400 text-white px-6">
+            <h2 class="font-bold text-lg leading-1">yksinkertaisempi</h2>
+            <h1 class="font-black text-4xl mb-4 leading-none">Torihaku</h1>
             <p class="text-lg leading-tight text-sm w-4/5">Tervetuloa käyttämään yksinkertaistettua Tori.fi-hakua. <a href="#" id="open-modal" class="underline text-red-900">Lue lisää</a>
             </p>
         </div>
@@ -94,18 +104,18 @@
         
         <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 px-6 md:mx-auto">
             <div class="flex flex-col px-3 py-2 border border-gray-300 rounded space-y-2 md:flex-1">
-                <p class="font-bold">Myyjä:</p>
-                <div class="flex">
-                    <label class="space-x-2 flex flex-1"><input type="checkbox" id="yksityinen" checked><p>Yksityinen</p></label>
-                    <label class="space-x-2 flex flex-1"><input type="checkbox" id="yritys"><p>Yritys</p></label>
+                <div class="flex justify-between">
+                    <p class="font-bold">Myyjä:</p>
+                    <label class="space-x-2 flex"><input type="checkbox" id="yksityinen" checked><p>Yksityinen</p></label>
+                    <label class="space-x-2 flex"><input type="checkbox" id="yritys"><p>Yritys</p></label>
                 </div>
             </div>
             <div class="flex flex-col px-3 py-2 border border-gray-300 rounded space-y-2 md:flex-1">
                 <p class="font-bold">Tyyppi:</p>
-                <div class="flex">
-                    <label class="space-x-2 flex flex-1"><input type="checkbox" id="myydään" checked><p>Myydään</p></label>
-                    <label class="space-x-2 flex flex-1"><input type="checkbox" id="annetaan"><p>Annetaan</p></label>
-                    <label class="space-x-2 flex flex-1"><input type="checkbox" id="ostetaan"><p>Ostetaan</p></label>
+                <div class="flex justify-between">
+                    <label class="space-x-2 flex"><input type="checkbox" id="myydään" checked><p>Myydään</p></label>
+                    <label class="space-x-2 flex"><input type="checkbox" id="annetaan"><p>Annetaan</p></label>
+                    <label class="space-x-2 flex"><input type="checkbox" id="ostetaan"><p>Ostetaan</p></label>
                 </div>
             </div>
         </div>
@@ -122,17 +132,15 @@
         </div>
     </div>
 
-<div id="modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full p-6">
+<div id="modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 overflow-y-auto h-full w-full p-6">
     <div class="relative top-1/2 -translate-y-1/2 p-6 w-96 shadow-lg rounded-md bg-white w-auto max-h-full overflow-y-scroll">
         <div class="mt-3 text-left">
             <h3 class="leading-6 font-black text-2xl mb-4">Lisätietoa</h3>
             <div class="mt-2 leading-tight">
+                <p class="mt-3">Kun teet haun palvelu avaa puhelimesi Tori-sovelluksen valmiiksi suodatettuna valintojesi mukaan.</p>
                 <p class="mt-3">Palvelu on suunniteltu ensisijaisesti älypuhelimille.</p>
-                <p class="mt-3">Kun teet haun palvelu avaa puhelimesi Tori-sovelluksen tai Tori.fi:n selaimessa valmiiksi suodatettuna valintojesi mukaan.</p>
-                <p class="mt-3">Tehdyt haut tallennetaan paikallisesti selaimesi välimuistiin, jotta voit helposti palata niihin.</p>
-                <p class="mt-3">Palvelu <span class="font-bold">ei tallenna</span> tehtyjä hakuja.</p>
+                <p class="mt-3">Tehdyt haut tallennetaan paikallisesti selaimesi välimuistiin, jotta voit helposti palata niihin. Palvelu itsessään <span class="font-bold">ei tallenna</span> tehtyjä hakuja.</p>
                 <p class="mt-3">Helpoin tapa käyttää palvelua on lisätä se suoraan puhelimesi kotinäytölle.</p>
-                <p class="mt-3">Jos havaitset ongelmia ilmoitathan niistä <a href="https://github.com/torihaku/torihaku.github.io/issues" class="underline">GitHubissa</a>, kiitos.</p>
                 <p class="mt-3">Tämä palvelu on itsenäisesti kehitetty eikä se ole virallisesti yhteydessä Tori.fi-palveluun, Schibsted-konserniin tai mihinkään sen tytäryhtiöistä. Tämän palvelun kehittäjät tai tämän palvelun tarjoajat eivät ole missään suhteessa Tori.fi-palveluun tai Schibsted-konserniin, eikä heillä ole minkäänlaista virallista yhteyttä tai kumppanuutta näiden organisaatioiden kanssa.</p>
             </div>
             <div class="items-center mt-8 text-center">

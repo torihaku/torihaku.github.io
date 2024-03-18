@@ -126,7 +126,7 @@ $(document).ready(function() {
         // Lisää uusin haku listan alkuun
         searches.unshift(filteredDetails);
         // Rajaa lista 15 hakuun
-        searches = searches.slice(0, 15);
+        searches = searches.slice(0, 25);
         // Tallenna päivitetty lista takaisin localStorageen
         localStorage.setItem("searchHistory", JSON.stringify(searches));
     }
@@ -141,8 +141,8 @@ $(document).ready(function() {
 
         }
 
-        searches.forEach(function(search) {
-            var link = $("<a>").attr("href", search.url).attr("target", "_blank");
+        searches.forEach(function(search, index) {
+            var link = $('<a class="h-full w-full pr-4">').attr("href", search.url).attr("target", "_blank");
 
             if (search.hakusana) {
                 link.append($('<span class="font-bold text-lg">').text(search.hakusana), $("<br>"));
@@ -162,7 +162,14 @@ $(document).ready(function() {
                 link.append($("<span>").text(`Tyyppi: ${search.tradeTypes}`), $("<br>"));
             }
 
-            var listItem = $("<li>").addClass("text-sm px-3 py-2 shadow bg-white border border-gray-300 rounded-xl aspect-[5/4] md:w-2/12 mr-4 w-1/2 flex-none overflow-hidden").append(link);
+            var deleteButton = $('<button class="absolute right-2 top-2"><span class="material-symbols-outlined text-gray-400 text-base">close</span></button>');
+            deleteButton.on('click', function() {
+                searches.splice(index, 1); // Poista kohde hakuhistoriasta
+                localStorage.setItem("searchHistory", JSON.stringify(searches)); // Päivitä hakuhistoria localStorageen
+                displaySearchHistory(); // Päivitä hakuhistorian näyttö
+            });
+
+            var listItem = $("<li>").addClass("relative text-sm px-3 py-2 shadow bg-white border border-gray-300 rounded-xl md:w-2/12 mr-4 w-3/5 flex-none overflow-hidden flex items-center").append(link).append(deleteButton);
             listElement.append(listItem);
 
         });

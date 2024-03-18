@@ -149,6 +149,7 @@ $(document).ready(function(){
     // Avaa modaalikko
     $("#open-modal").click(function() {
         $("#modal").removeClass("hidden");
+        $("body").addClass("overflow-hidden");
     });
     
     // Sulje modaalikko
@@ -158,5 +159,6 @@ $(document).ready(function(){
             return;
         }
         $("#modal").addClass("hidden");
+        $("body").removeClass("overflow-hidden");
     });
 });
