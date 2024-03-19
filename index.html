@@ -2,7 +2,7 @@
 <html lang="fi">
 <head>
     <meta charset="utf-8">
-    <title>Torihaku</title>
+    <title>helppo Torihaku</title>
     <link rel="manifest" href="manifest.json">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#F87171">
@@ -54,15 +54,16 @@
     </script>
 </head>
 <body class="md:bg-gray-100">
-    <div class="container mx-auto pb-6 space-y-4 md:border md:my-8 md:shadow-lg md:border-gray-300 md:rounded-xl md:max-w-screen-lg bg-white">
-        <div class="py-4 text-center flex flex-col items-center bg-red-400 text-white px-6">
-            <h2 class="font-bold text-lg leading-1">yksinkertaisempi</h2>
-            <h1 class="font-black text-4xl mb-4 leading-none">Torihaku</h1>
-            <p class="text-lg leading-tight text-sm w-4/5">Tervetuloa käyttämään yksinkertaistettua Tori.fi-hakua. <a href="#" id="open-modal" class="underline text-red-900">Lue lisää</a>
+    <div class="py-4 text-center flex flex-col items-center bg-red-400 text-white px-6 fixed top-0 w-full z-10">
+        <h1 class="font-black text-4xl leading-none flex items-center"><span class="font-bold text-lg leading-1 mr-2">helppo</span>Torihaku</h1>
+    </div>
+    <div class="container mx-auto pb-6 space-y-4 md:border md:my-8 md:shadow-lg md:border-gray-300 md:rounded-xl md:max-w-screen-lg bg-white mb-28 md:mt-24">
+        <div class="py-4 text-center flex flex-col items-center bg-gray-100 px-6 pt-20 md:pt-4">
+            <p class="text-lg leading-tight text-sm w-4/5 mt-1">Tervetuloa käyttämään yksinkertaistettua Tori.fi-hakua. <a href="#" id="open-modal" class="underline text-red-900">Lue lisää</a>
             </p>
         </div>
 
-        <div id="hakukentta" class="px-6 md:max-w-xl md:mx-auto pt-2 md:py-6">
+        <div id="hakukentta" class="px-6 md:max-w-xl md:mx-auto md:py-6 pt-2">
             <div class="border border-gray-300 flex items-center relative rounded">
                 <span class="material-symbols-outlined text-gray-900 absolute left-2 top-1/2 -translate-y-1/2 text-4xl">search</span>
                 <input type="text" id="hakusana" placeholder="Hae Torista" class="pr-5 pl-14 py-4 w-full rounded text-xl">
@@ -78,7 +79,7 @@
         <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 px-6 md:mx-auto">
             <div class="w-full shadow relative">
                 <div id="button-osasto" class="flex justify-between w-full pl-3 pr-2 py-2 border border-gray-300 rounded">
-                    <p>Valitse osasto</p><span class="material-symbols-outlined text-gray-400">keyboard_arrow_down</span>
+                    <p>Valitse osasto</p><span class="material-symbols-outlined text-gray-400 flex items-center">keyboard_arrow_down</span>
                 </div>
                 <div id="dropdown-osasto" class="border border-gray-300 p-2 rounded shadow-lg md:shadow-none absolute bottom-0 translate-y-full w-full left-0 bg-white hidden z-50">
                     <div class="search-container w-full mb-2 relative">
@@ -121,19 +122,19 @@
             </div>
         </div>
 
-        <div class="px-6 md:max-w-xl md:mx-auto md:pt-6">
-            <div id="button-hae" class="rounded px-4 py-3 bg-red-400 text-center text-white text-xl flex space-x-2 items-center justify-center">
-                <span class="material-symbols-outlined text-gray-900 text-3xl text-white">search</span>
-                <p class="font-bold">Hae</p>
-            </div>
-        </div>
-
-        <div class="px-6 text-gray-400 text-center pt-8">
+        
+        <div class="px-6 text-gray-400 text-center pt-2">
             <p class="text-xs">Tämä palvelu on itsenäisesti kehitetty eikä se ole virallisesti yhteydessä Tori.fi-palveluun, Schibsted-konserniin tai mihinkään sen tytäryhtiöistä. Tämän palvelun kehittäjät tai tämän palvelun tarjoajat eivät ole missään suhteessa Tori.fi-palveluun tai Schibsted-konserniin, eikä heillä ole minkäänlaista virallista yhteyttä tai kumppanuutta näiden organisaatioiden kanssa.</p>
         </div>
     </div>
+    <div class="px-6 md:mx-auto md:pt-6 fixed bottom-0 w-full py-6 bg-white border-t border-gray-300 flex justify-center varjo">
+        <div id="button-hae" class="w-full md:max-w-xl rounded px-4 py-3 bg-red-400 text-center text-white text-xl flex space-x-2 items-center justify-center">
+            <span class="material-symbols-outlined text-gray-900 text-3xl text-white">search</span>
+            <p class="font-bold">Hae</p>
+        </div>
+    </div>
 
-<div id="modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 overflow-y-auto h-full w-full p-6">
+<div id="modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 overflow-y-auto h-full w-full p-6 z-50">
     <div class="relative top-1/2 -translate-y-1/2 p-6 w-96 shadow-lg rounded-md bg-white w-auto max-h-full overflow-y-scroll">
         <div class="mt-3 text-left">
             <h3 class="leading-6 font-black text-2xl mb-4">Lisätietoa</h3>
@@ -143,6 +144,8 @@
                 <p class="mt-3">Tehdyt haut tallennetaan paikallisesti selaimesi välimuistiin, jotta voit helposti palata niihin. Palvelu itsessään <span class="font-bold">ei tallenna</span> tehtyjä hakuja.</p>
                 <p class="mt-3">Helpoin tapa käyttää palvelua on lisätä se suoraan puhelimesi kotinäytölle.</p>
                 <p class="mt-3">Tämä palvelu on itsenäisesti kehitetty eikä se ole virallisesti yhteydessä Tori.fi-palveluun, Schibsted-konserniin tai mihinkään sen tytäryhtiöistä. Tämän palvelun kehittäjät tai tämän palvelun tarjoajat eivät ole missään suhteessa Tori.fi-palveluun tai Schibsted-konserniin, eikä heillä ole minkäänlaista virallista yhteyttä tai kumppanuutta näiden organisaatioiden kanssa.</p>
+                <p class="mt-6 font-bold">Päivitykset: </p>
+                <p class="mt-3">19.3.2024: Osastoja voi valita useita. Rakennetta muutettu siten, että yläpalkki ja alapalkki kiinnitetty paikoilleen.</p>
             </div>
             <div class="items-center mt-8 text-center">
                 <button type="submit" id="close-modal" class="px-4 py-2 bg-red-400 text-white rounded hover:bg-red-500">Sulje</button>

@@ -47,30 +47,29 @@ $(document).ready(function() {
         // Yhdistetään kerätyt arvot queryParams-listaan
         queryParams = queryParams.concat(locations, dealerSegments, tradeTypes);
 
-        // Etsi valittu radiobutton #dropdownContainer-osasto sisältä
-        var selectedRadioButton = $("#dropdownContainer-osasto input[type='checkbox']:checked");
-        if (selectedRadioButton.length > 0) {
-            var categoryValue = selectedRadioButton.val(); // Valitun radiobuttonin arvo
-            var dataLevel = selectedRadioButton.data('level'); // data-level attribuutin arvo
+        // Kerätään kaikki valitut osastot #dropdownContainer-osasto sisältä
+        $("#dropdownContainer-osasto input[type='checkbox']:checked").each(function() {
+            var osastoValue = $(this).val();
+            var dataLevel = $(this).data('level');
             var categoryType = ""; // Määritellään tyhjäksi, päivitetään alla
             
             // Päätetään, mitä prefixiä käytetään URLin parametrina
-            if (categoryValue.startsWith("0.")) {
+            if (osastoValue.startsWith("0.")) {
                 categoryType = "category=" + dataLevel + ".";
-            } else if (categoryValue.startsWith("1.")) {
+            } else if (osastoValue.startsWith("1.")) {
                 categoryType = "sub_category=" + dataLevel + ".";
-            } else if (categoryValue.startsWith("2.")) {
-                categoryType = "product_category=" + dataLevel + "."; // Lisätään data-level eteen
+            } else if (osastoValue.startsWith("2.")) {
+                categoryType = "product_category=" + dataLevel + ".";
             }
             
-            // Poista data-level ja pisteen määrittely categoryValuesta
-            categoryValue = categoryValue.substring(2);
+            // Poista data-level ja pisteen määrittely osastoValuesta
+            osastoValue = osastoValue.substring(2);
             
             // Lisätään lopullinen arvo queryParams listaan
             if (categoryType) {
-                queryParams.push(categoryType + categoryValue);
+                queryParams.push(categoryType + osastoValue);
             }
-        }
+        });
 
         // Aloita URLin muodostus ja lisää queryParams
         var baseUrl = "https://beta.tori.fi/recommerce/forsale/search?";
@@ -145,12 +144,12 @@ $(document).ready(function() {
             var link = $('<a class="h-full w-full pr-4">').attr("href", search.url).attr("target", "_blank");
 
             if (search.hakusana) {
-                link.append($('<span class="font-bold text-lg leading-none">').text(search.hakusana), $("<br>"));
+                link.append($('<span class="font-bold text-base leading-none">').text(search.hakusana), $("<br>"));
             }
             if (search.osasto && search.hakusana) {
                 link.append($("<span>").text(`${search.osasto}`), $("<br>"));
             } else if (search.osasto) {
-                link.append($('<span class="font-bold text-lg leading-none">').text(`${search.osasto}`), $("<br>"));
+                link.append($('<span class="font-bold text-base leading-none">').text(`${search.osasto}`), $("<br>"));
             }
             if (search.sijainti) {
                 link.append($("<span>").text(`${search.sijainti}`), $("<br>"));

@@ -115,23 +115,24 @@ $(document).ready(function(){
     });
 
     // Delegoi change-tapahtuman kuuntelu #dropdownContainer-osasto:lle, joka kohdistuu kaikkiin checkboxeihin sen sisällä
-    $("#dropdownContainer-osasto").on("change", "input[type='checkbox'][name='osasto']", function() {
+    /*$("#dropdownContainer-osasto").on("change", "input[type='checkbox'][name='osasto']", function() {
         // Tarkista, onko nykyinen checkbox valittu
         if ($(this).is(":checked")) {
             // Uncheckkaa kaikki muut checkboxit paitsi tämä
             $("input[type='checkbox'][name='osasto']").not(this).prop("checked", false);
         }
-    });
+    });*/
 
     // Kuuntele kaikkien checkboxien valintatapahtumaa #dropdownContainer sisällä
     $('#dropdownContainer-osasto').on('change', 'input[type="checkbox"]', function() {
-        // Tarkista, onko mikään checkbox valittu
-        var selectedCheckbox = $('#dropdownContainer-osasto input[type="checkbox"]:checked');
+        // Kerää kaikkien valittujen checkboxien nimet
+        var selectedNames = $('#dropdownContainer-osasto input[type="checkbox"]:checked').map(function() {
+            return $(this).data('name');
+        }).get().join(", "); // Muuttaa taulukon merkkijonoksi, nimet erotettu pilkulla
         
-        if (selectedCheckbox.length > 0) {
-            // Jos valittu, päivitä #button-sijainti p-elementin teksti valitun sijainnin nimeksi
-            var selectedLocationName = selectedCheckbox.data('name');
-            $('#button-osasto p').text(selectedLocationName);
+        if (selectedNames) {
+            // Jos yksi tai useampia valittu, näytä kaikki valitut nimet
+            $('#button-osasto p').text(selectedNames);
         } else {
             // Jos ei valintoja, aseta oletusteksti
             $('#button-osasto p').text('Valitse osasto');
