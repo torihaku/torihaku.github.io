@@ -169,7 +169,7 @@ $(document).ready(function() {
                 displaySearchHistory(); // Päivitä hakuhistorian näyttö
             });
 
-            var listItem = $("<li>").addClass("relative text-sm px-3 py-3 shadow bg-white border border-gray-300 rounded-xl md:w-2/12 mr-4 w-3/5 flex-none overflow-hidden flex items-center").append(link).append(deleteButton);
+            var listItem = $("<li>").addClass("relative text-sm px-3 py-3 shadow bg-white border border-gray-300 rounded-xl md:w-2/12 mr-4 w-48 flex-none overflow-hidden flex items-center snap-start").append(link).append(deleteButton);
             listElement.append(listItem);
 
         });
