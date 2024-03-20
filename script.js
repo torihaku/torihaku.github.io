@@ -168,13 +168,13 @@ $(document).ready(function(){
     if (currentTheme) {
         document.documentElement.classList.add(currentTheme);
         if (currentTheme === 'dark') {
-            $('#themeToggle span').text('dark_mode');
-        } else {
             $('#themeToggle span').text('light_mode');
+        } else {
+            $('#themeToggle span').text('dark_mode');
         }
     } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.documentElement.classList.add('dark');
-        $('#themeToggle span').text('dark_mode');
+        $('#themeToggle span').text('light_mode');
     }
 
     // Käsittele teemanvaihto
@@ -184,11 +184,11 @@ $(document).ready(function(){
         if (isDarkMode) {
             document.documentElement.classList.remove('dark');
             localStorage.setItem('torihakutheme', 'light');
-            $('#themeToggle span').text('light_mode');
+            $('#themeToggle span').text('dark_mode');
         } else {
             document.documentElement.classList.add('dark');
             localStorage.setItem('torihakutheme', 'dark');
-            $('#themeToggle span').text('dark_mode');
+            $('#themeToggle span').text('light_mode');
         }
     });
 });
