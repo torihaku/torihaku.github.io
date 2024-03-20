@@ -2,7 +2,7 @@
   "name": "Torihaku",
   "short_name": "Torihaku",
   "theme_color": "#F87171",
-  "background_color": "#F87171",
+  "background_color": "#000",
   "display": "fullScreen",
   "orientation": "portrait",
   "scope": "/",
