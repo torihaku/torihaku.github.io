@@ -6,6 +6,7 @@ $(document).ready(function() {
         // Togglettaa dropdownin näkyvyyden
         $("#dropdown-sijainti").toggle();
         $("#button-sijainti span").toggleClass('rotate-180');
+        $("#dropdown-osasto").hide();
     });
 
     // Klikkauskuuntelija dropdownille, estää dropdownin sulkemisen klikattaessa sitä itseään
@@ -30,6 +31,7 @@ $(document).ready(function() {
         // Togglettaa dropdownin näkyvyyden
         $("#dropdown-osasto").toggle();
         $("#button-osasto span").toggleClass('rotate-180');
+        $("#dropdown-sijainti").hide();
     });
 
     // Klikkauskuuntelija dropdownille, estää dropdownin sulkemisen klikattaessa sitä itseään
