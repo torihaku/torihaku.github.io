@@ -44,19 +44,6 @@ $(document).ready(function(){
 
     // Kuuntele kaikkien checkboxien valintatapahtumaa #dropdownContainer sisällä
     $('#dropdownContainer').on('change', 'input[type="checkbox"]', function() {
-        // Kerää kaikkien valittujen checkboxien sijainnit
-        /*var selectedLocations = $('#dropdownContainer input[type="checkbox"]:checked').map(function() {
-            return $(this).data('name'); // Käytä data-name attribuuttia nimen saamiseen
-        }).get();
-        
-        if (selectedLocations.length > 0) {
-            // Jos yksi tai useampi valittu, yhdistä valittujen sijaintien nimet
-            var locationsText = selectedLocations.join(", ");
-            $('#button-sijainti p').text(locationsText);
-        } else {
-            // Jos ei valintoja, aseta oletusteksti
-            $('#button-sijainti p').text('Valitse sijainti');
-        }*/
         updateSelectedSijainnitDisplay();
     });
 
@@ -96,10 +83,53 @@ $(document).ready(function(){
     // Hakutoiminnallisuus
     $("#searchInput").on("keyup", function() {
         var value = $(this).val().toLowerCase();
-        $("#dropdownContainer label").filter(function() {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+    
+        // Piilota ensin kaikki labelit
+        $("#dropdownContainer label").hide();
+    
+        $("#dropdownContainer label").each(function() {
+            var label = $(this);
+            var labelText = label.text().toLowerCase();
+            var dataLevel = label.find('input[type="checkbox"]').data('level');
+    
+            // Kun vastaavuus löytyy...
+            if (labelText.indexOf(value) > -1) {
+                // Näytä kaikki data-level="1" elementit, jos niiden vanhempi vastaa hakua
+                if (dataLevel === 0) {
+                    label.show(); // Näytä vanhempi
+                    showChildren(label); // Näytä kaikki sen lapsielementit
+                } 
+                // Jos data-level="1" elementti vastaa suoraan, näytä se ja sen vanhempi
+                else if (dataLevel === 1) {
+                    label.show(); // Näytä lapsielementti
+                    // Etsi ja näytä myös sen vanhempi
+                    showParent(label);
+                }
+            }
         });
+    
+        // Funktio lapsielementtien näyttämiseen
+        function showChildren(parentLabel) {
+            parentLabel.nextAll().each(function() {
+                if ($(this).find('input[type="checkbox"]').data('level') === 1) {
+                    $(this).show(); // Näytä lapsielementti
+                } else if ($(this).find('input[type="checkbox"]').data('level') === 0) {
+                    return false; // Keskeytä, kun seuraava vanhempi löytyy
+                }
+            });
+        }
+    
+        // Funktio vanhemman näyttämiseen
+        function showParent(childLabel) {
+            childLabel.prevAll().each(function() {
+                if ($(this).find('input[type="checkbox"]').data('level') === 0) {
+                    $(this).show(); // Näytä vanhempi
+                    return false; // Keskeytä, kun vanhempi löytyy
+                }
+            });
+        }
     });
+    
 
     // Lataa JSON-data
     $.getJSON('osastot.json', function(data) {
@@ -184,11 +214,63 @@ $(document).ready(function(){
     }
 
     // Hakutoiminnallisuus
+    /*
     $("#searchInput-osasto").on("keyup", function() {
         var value = $(this).val().toLowerCase();
         $("#dropdownContainer-osasto label").filter(function() {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
         });
+    });
+    */
+
+    // Hakutoiminnallisuus
+    $("#searchInput-osasto").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+    
+        // Piilota ensin kaikki labelit
+        $("#dropdownContainer-osasto label").hide();
+    
+        $("#dropdownContainer-osasto label").each(function() {
+            var label = $(this);
+            var labelText = label.text().toLowerCase();
+            var dataLevel = label.find('input[type="checkbox"]').data('level');
+    
+            // Kun vastaavuus löytyy...
+            if (labelText.indexOf(value) > -1) {
+                // Näytä kaikki data-level="1" elementit, jos niiden vanhempi vastaa hakua
+                if (dataLevel === 0) {
+                    label.show(); // Näytä vanhempi
+                    showChildren(label); // Näytä kaikki sen lapsielementit
+                } 
+                // Jos data-level="1" elementti vastaa suoraan, näytä se ja sen vanhempi
+                else if (dataLevel === 1) {
+                    label.show(); // Näytä lapsielementti
+                    // Etsi ja näytä myös sen vanhempi
+                    showParent(label);
+                }
+            }
+        });
+    
+        // Funktio lapsielementtien näyttämiseen
+        function showChildren(parentLabel) {
+            parentLabel.nextAll().each(function() {
+                if ($(this).find('input[type="checkbox"]').data('level') === 1) {
+                    $(this).show(); // Näytä lapsielementti
+                } else if ($(this).find('input[type="checkbox"]').data('level') === 0) {
+                    return false; // Keskeytä, kun seuraava vanhempi löytyy
+                }
+            });
+        }
+    
+        // Funktio vanhemman näyttämiseen
+        function showParent(childLabel) {
+            childLabel.prevAll().each(function() {
+                if ($(this).find('input[type="checkbox"]').data('level') === 0) {
+                    $(this).show(); // Näytä vanhempi
+                    return false; // Keskeytä, kun vanhempi löytyy
+                }
+            });
+        }
     });
 
     // Avaa modaalikko
