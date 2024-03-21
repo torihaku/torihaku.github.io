@@ -45,7 +45,7 @@ $(document).ready(function(){
     // Kuuntele kaikkien checkboxien valintatapahtumaa #dropdownContainer sisällä
     $('#dropdownContainer').on('change', 'input[type="checkbox"]', function() {
         // Kerää kaikkien valittujen checkboxien sijainnit
-        var selectedLocations = $('#dropdownContainer input[type="checkbox"]:checked').map(function() {
+        /*var selectedLocations = $('#dropdownContainer input[type="checkbox"]:checked').map(function() {
             return $(this).data('name'); // Käytä data-name attribuuttia nimen saamiseen
         }).get();
         
@@ -56,9 +56,42 @@ $(document).ready(function(){
         } else {
             // Jos ei valintoja, aseta oletusteksti
             $('#button-sijainti p').text('Valitse sijainti');
-        }
+        }*/
+        updateSelectedSijainnitDisplay();
     });
 
+    function updateSelectedSijainnitDisplay() {
+        // Tyhjennä nykyiset valinnat .label-divistä
+        $('#button-sijainti .label').empty();
+
+        // Lisää jokainen valittu sijainti omaksi p-elementikseen
+        $('#dropdownContainer input[type="checkbox"]:checked').each(function() {
+            var name = $(this).data('name');
+            var value = $(this).val();
+            var span = $('<span class="material-symbols-outlined text-gray-400 flex items-center text-xs ml-1">close</span>');
+            var p = $('<p class="selected-sijainti text-sm mr-2 py-1 px-2 bg-gray-100 dark:bg-gray-600 rounded-full cursor-pointer whitespace-nowrap flex items-center">').text(name).append(span);
+            
+            // Lisää klikkaustapahtuma spanille poistoa varten
+            span.on('click', function(event) {
+                event.stopPropagation(); // Estä tapahtuman leviäminen, jottei se sulje dropdownia
+                // Uncheckaa vastaava checkbox
+                $('input[type="checkbox"][value="' + value + '"]').prop('checked', false);
+                // Poista koko p-elementti
+                p.remove();
+                // Päivitä näyttö, jos kaikki valinnat poistetaan
+                if ($('#button-sijainti .label').children().length === 0) {
+                    $('#button-sijainti .label').text('Valitse sijainti');
+                }
+            });
+
+            $('#button-sijainti .label').append(p);
+        });
+
+        // Jos ei valintoja, aseta oletusteksti .label-diviin
+        if ($('#button-sijainti .label').children().length === 0) {
+            $('#button-sijainti .label').text('Valitse sijainti');
+        }
+    }
 
     // Hakutoiminnallisuus
     $("#searchInput").on("keyup", function() {
@@ -67,9 +100,7 @@ $(document).ready(function(){
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
         });
     });
-});
 
-$(document).ready(function(){
     // Lataa JSON-data
     $.getJSON('osastot.json', function(data) {
         function parseData(obj, level = 0, parentLocations = '') {
@@ -114,30 +145,43 @@ $(document).ready(function(){
         parseData(data);
     });
 
-    // Delegoi change-tapahtuman kuuntelu #dropdownContainer-osasto:lle, joka kohdistuu kaikkiin checkboxeihin sen sisällä
-    /*$("#dropdownContainer-osasto").on("change", "input[type='checkbox'][name='osasto']", function() {
-        // Tarkista, onko nykyinen checkbox valittu
-        if ($(this).is(":checked")) {
-            // Uncheckkaa kaikki muut checkboxit paitsi tämä
-            $("input[type='checkbox'][name='osasto']").not(this).prop("checked", false);
-        }
-    });*/
-
     // Kuuntele kaikkien checkboxien valintatapahtumaa #dropdownContainer sisällä
     $('#dropdownContainer-osasto').on('change', 'input[type="checkbox"]', function() {
-        // Kerää kaikkien valittujen checkboxien nimet
-        var selectedNames = $('#dropdownContainer-osasto input[type="checkbox"]:checked').map(function() {
-            return $(this).data('name');
-        }).get().join(", "); // Muuttaa taulukon merkkijonoksi, nimet erotettu pilkulla
-        
-        if (selectedNames) {
-            // Jos yksi tai useampia valittu, näytä kaikki valitut nimet
-            $('#button-osasto p').text(selectedNames);
-        } else {
-            // Jos ei valintoja, aseta oletusteksti
-            $('#button-osasto p').text('Valitse osasto');
-        }
+        // Päivitä valittujen osastojen näyttöä
+        updateSelectedOsastotDisplay();
     });
+
+    function updateSelectedOsastotDisplay() {
+        // Tyhjennä nykyiset valinnat .label-divistä
+        $('#button-osasto .label').empty();
+
+        // Lisää jokainen valittu osasto omaksi p-elementikseen
+        $('#dropdownContainer-osasto input[type="checkbox"]:checked').each(function() {
+            var name = $(this).data('name');
+            var value = $(this).val();
+            var span = $('<span class="material-symbols-outlined text-gray-400 flex items-center text-xs ml-1">close</span>');
+            var p = $('<p class="selected-osasto text-sm mr-2 py-1 px-2 bg-gray-100 dark:bg-gray-600 rounded-full cursor-pointer whitespace-nowrap flex items-center">').text(name).append(span);
+            
+            // Lisää klikkaustapahtuma p-elementille poistoa varten
+            span.on('click', function() {
+                // Uncheckaa vastaava checkbox
+                $('input[type="checkbox"][value="' + value + '"]').prop('checked', false);
+                // Poista koko p-elementti
+                p.remove();
+                // Päivitä näyttö, jos kaikki valinnat poistetaan
+                if ($('#button-osasto .label').children().length === 0) {
+                    $('#button-osasto .label').text('Valitse osasto');
+                }
+            });
+
+            $('#button-osasto .label').append(p);
+        });
+
+        // Jos ei valintoja, aseta oletusteksti .label-diviin
+        if ($('#button-osasto .label').children().length === 0) {
+            $('#button-osasto .label').text('Valitse osasto');
+        }
+    }
 
     // Hakutoiminnallisuus
     $("#searchInput-osasto").on("keyup", function() {
