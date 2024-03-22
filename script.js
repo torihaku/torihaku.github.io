@@ -82,17 +82,13 @@ $(document).ready(function(){
 
     // Hakukentän tyhjennyksen ja kaikkien osastojen näyttämisen toiminto
     $('#dropdown-sijainti > .search-container > span').click(function() {
-        // Tyhjennä hakukenttä
         $('#searchInput').val('');
-
-        // Näytä kaikki osastot
         $('#dropdownContainer label').show();
     });
 
     // Hakutoiminnallisuus (päivitetty näyttämään kaikki osastot, kun hakukenttä on tyhjä)
     $("#searchInput-sijainti").on("keyup", function() {
         var value = $(this).val().toLowerCase();
-        // Näytä tai piilota osastot hakuehdon perusteella
         $("#dropdownContainer-sijainti label").filter(function() {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1 || value === "");
         });
@@ -195,17 +191,13 @@ $(document).ready(function(){
 
     // Hakukentän tyhjennyksen ja kaikkien osastojen näyttämisen toiminto
     $('#dropdown-osasto > .search-container > span').click(function() {
-        // Tyhjennä hakukenttä
         $('#searchInput-osasto').val('');
-
-        // Näytä kaikki osastot
         $('#dropdownContainer-osasto label').show();
     });
 
     // Hakutoiminnallisuus (päivitetty näyttämään kaikki osastot, kun hakukenttä on tyhjä)
     $("#searchInput-osasto").on("keyup", function() {
         var value = $(this).val().toLowerCase();
-        // Näytä tai piilota osastot hakuehdon perusteella
         $("#dropdownContainer-osasto label").filter(function() {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1 || value === "");
         });
@@ -213,28 +205,22 @@ $(document).ready(function(){
 
     // Kuuntele kaikkien checkboxien valintatapahtumaa #dropdownContainer sisällä
     $('#dropdownContainer-osasto').on('change', 'input[type="checkbox"]', function() {
-        // Päivitä valittujen osastojen näyttöä
         updateSelectedOsastotDisplay();
     });
 
     function updateSelectedOsastotDisplay() {
-        // Tyhjennä nykyiset valinnat .label-divistä
         $('#button-osasto .label').empty();
 
-        // Lisää jokainen valittu osasto omaksi p-elementikseen
         $('#dropdownContainer-osasto input[type="checkbox"]:checked').each(function() {
             var name = $(this).data('name');
             var value = $(this).val();
             var span = $('<span class="material-symbols-outlined text-gray-400 flex items-center text-xs ml-1">close</span>');
             var p = $('<p class="selected-osasto text-sm mr-2 py-1 pr-2 pl-3 bg-gray-100 dark:bg-gray-600 rounded-full cursor-pointer whitespace-nowrap flex items-center">').text(name).append(span);
             
-            // Lisää klikkaustapahtuma p-elementille poistoa varten
             span.on('click', function() {
-                // Uncheckaa vastaava checkbox
+                event.stopPropagation(); // Estä tapahtuman leviäminen, jottei se sulje dropdownia
                 $('input[type="checkbox"][value="' + value + '"]').prop('checked', false);
-                // Poista koko p-elementti
                 p.remove();
-                // Päivitä näyttö, jos kaikki valinnat poistetaan
                 if ($('#button-osasto .label').children().length === 0) {
                     $('#button-osasto .label').text('Valitse osasto');
                 }
@@ -243,21 +229,12 @@ $(document).ready(function(){
             $('#button-osasto .label').append(p);
         });
 
-        // Jos ei valintoja, aseta oletusteksti .label-diviin
         if ($('#button-osasto .label').children().length === 0) {
             $('#button-osasto .label').text('Valitse osasto');
         }
     }
 
-    // Hakutoiminnallisuus
-    /*
-    $("#searchInput-osasto").on("keyup", function() {
-        var value = $(this).val().toLowerCase();
-        $("#dropdownContainer-osasto label").filter(function() {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-        });
-    });
-    */
+    
 
     // Hakutoiminnallisuus
     $("#searchInput-osasto").on("keyup", function() {
