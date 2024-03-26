@@ -144,6 +144,45 @@ $(document).ready(function(){
         }
     });
     
+    function fillFormWithLastSearch() {
+        var searches = JSON.parse(localStorage.getItem("searchHistory"));
+        if (searches && searches.length > 0) {
+            var lastSearch = searches[0];
+
+            $("#hakusana").val(lastSearch.hakusana);
+
+            var osastoNames = lastSearch.osasto.split(", ");
+            console.log(osastoNames);
+            osastoNames.forEach(function(name) {
+                $('#dropdownContainer-osasto input[data-name="' + name + '"]').each(function() {
+                    $(this).prop('checked', true);
+                });
+            });
+            var sijaintiNames = lastSearch.sijainti.split(", ");
+            console.log(sijaintiNames);
+            sijaintiNames.forEach(function(name) {
+                $('#dropdownContainer input[data-name="' + name + '"]').each(function() {
+                    $(this).prop('checked', true);
+                });
+            });
+
+            if (lastSearch.dealerSegments.includes("Yksityinen")) {
+                $("#yksityinen").prop("checked", true);
+            }
+            if (lastSearch.dealerSegments.includes("Yritys")) {
+                $("#yritys").prop("checked", true);
+            }
+            if (lastSearch.tradeTypes.includes("Myydään")) {
+                $("#myydään").prop("checked", true);
+            }
+            if (lastSearch.tradeTypes.includes("Annetaan")) {
+                $("#annetaan").prop("checked", true);
+            }
+            if (lastSearch.tradeTypes.includes("Ostetaan")) {
+                $("#ostetaan").prop("checked", true);
+            }
+        }
+    }
 
     // Lataa JSON-data
     $.getJSON('osastot.json', function(data) {
@@ -187,6 +226,9 @@ $(document).ready(function(){
 
         // Käynnistä datan jäsentäminen
         parseData(data);
+        fillFormWithLastSearch();
+        updateSelectedOsastotDisplay();
+        updateSelectedSijainnitDisplay();
     });
 
     // Hakukentän tyhjennyksen ja kaikkien osastojen näyttämisen toiminto
@@ -234,7 +276,6 @@ $(document).ready(function(){
         }
     }
 
-    
 
     // Hakutoiminnallisuus
     $("#searchInput-osasto").on("keyup", function() {
