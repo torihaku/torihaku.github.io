@@ -5,7 +5,7 @@
     <title>Torihaku – helpompi tapa hakea tori.fi:stä</title>
     <meta name="description" content="Helpompi tapa hakea tori.fi:stä.">
     <link rel="manifest" href="manifest.json">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <meta name="theme-color" content="#F87171">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -42,7 +42,18 @@
             li:last-child {
                 @apply mr-6;
             }
-        }  
+        }
+        .myyja, .tyyppi {
+            input[type="checkbox"] {
+                @apply hidden;
+                &:checked + label > p > span {
+                    @apply flex;
+                }
+                &:checked + label > p:first-of-type {
+                    @apply bg-blue-500;
+                }
+            }
+        }
     </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y6YK874BBQ"></script>
@@ -78,7 +89,7 @@
             </div>
 
             <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 px-6 md:mx-auto mb-4">
-                <div class="w-full shadow relative">
+                <div class="w-full shadow md:shadow-none relative md:max-w-[calc(50%-0.5rem)]">
                     <div id="button-osasto" class="flex justify-between items-center w-full pr-2 py-2 border border-gray-300 rounded dark:border-gray-600 dark:bg-gray-700 h-11">
                         <div class="label flex flex-nowrap overflow-x-scroll mr-1 relative pr-1 pl-2 ml-1">Valitse osasto</div>
                         <div class="w-3 h-10 mr-8 bg-gradient-to-l from-transparent to-white dark:to-gray-700 absolute left-1 pointer-events-none">&nbsp;</div>
@@ -95,7 +106,7 @@
                     </div>
                 </div>
 
-                <div class="w-full shadow md:shadow-none relative">
+                <div class="w-full shadow md:shadow-none relative md:max-w-[calc(50%-0.5rem)]">
                     <div id="button-sijainti" class="flex justify-between items-center w-full pr-2 py-2 border border-gray-300 rounded dark:border-gray-600 dark:bg-gray-700 h-11">
                         <div class="label flex flex-nowrap overflow-x-scroll mr-1 relative pr-1 pl-2 ml-1">Valitse sijainti</div>
                         <div class="w-3 h-10 mr-8 bg-gradient-to-l from-transparent to-white dark:to-gray-700 absolute left-1 pointer-events-none">&nbsp;</div>
@@ -114,19 +125,57 @@
             </div>
             
             <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 px-6 md:mx-auto mb-4">
-                <div class="flex flex-col px-3 py-2 border border-gray-300 rounded space-y-2 md:flex-1 dark:border-gray-700">
-                    <div class="flex justify-between">
-                        <p class="font-bold">Myyjä:</p>
-                        <label class="space-x-2 flex"><input type="checkbox" id="yksityinen" checked><p>Yksityinen</p></label>
-                        <label class="space-x-2 flex"><input type="checkbox" id="yritys"><p>Yritys</p></label>
+                <div class="myyja flex flex-col rounded space-y-2 md:basis-1/2">
+                    <div class="flex justify-between items-center md:flex-wrap space-x-2 md:space-x-0">
+                        <div class="flex-1 md:basis-1/2 md:pr-2">
+                            <input type="checkbox" id="yksityinen" name="yksityinen" checked>
+                            <label for="yksityinen" class="flex items-center bg-gray-700 rounded-full p-1">
+                                <p class="bg-gray-800 rounded-full w-6 h-6 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-lg hidden">check</span>
+                                </p>
+                                <p class="ml-2 mr-1 text-sm">Yksityinen</p>
+                            </label>
+                        </div>
+                        <div class="flex-1 md:basis-1/2 md:pl-2">
+                            <input type="checkbox" id="yritys" name="yritys">
+                            <label for="yritys" class="flex items-center bg-gray-700 rounded-full p-1">
+                                <p class="bg-gray-800 rounded-full w-6 h-6 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-lg hidden">check</span>
+                                </p>
+                                <p class="ml-2 mr-1 text-sm">Yritys</p>
+                            </label>
+                        </div>
                     </div>
                 </div>
-                <div class="flex flex-col px-3 py-2 border border-gray-300 rounded space-y-2 md:flex-1 dark:border-gray-700">
-                    <p class="font-bold">Tyyppi:</p>
+                <div class="tyyppi flex flex-col space-y-2 :flex-1 md:basis-1/2">
                     <div class="flex justify-between">
-                        <label class="space-x-2 flex"><input type="checkbox" id="myydään" checked><p>Myydään</p></label>
-                        <label class="space-x-2 flex"><input type="checkbox" id="annetaan"><p>Annetaan</p></label>
-                        <label class="space-x-2 flex"><input type="checkbox" id="ostetaan"><p>Ostetaan</p></label>
+                        <div class="">
+                            <input type="checkbox" id="myydään" name="myydään" checked>
+                            <label for="myydään" class="flex items-center bg-gray-700 rounded-full p-1">
+                                <p class="bg-gray-800 rounded-full w-6 h-6 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-lg hidden">check</span>
+                                </p>
+                                <p class="ml-2 mr-2 text-sm">Myydään</p>
+                            </label>
+                        </div>
+                        <div class="">
+                            <input type="checkbox" id="annetaan" name="annetaan">
+                            <label for="annetaan" class="flex items-center bg-gray-700 rounded-full p-1">
+                                <p class="bg-gray-800 rounded-full w-6 h-6 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-lg hidden">check</span>
+                                </p>
+                                <p class="ml-2 mr-2 text-sm">Annetaan</p>
+                            </label>
+                        </div>
+                        <div class="">
+                            <input type="checkbox" id="ostetaan" name="ostetaan">
+                            <label for="ostetaan" class="flex items-center bg-gray-700 rounded-full p-1">
+                                <p class="bg-gray-800 rounded-full w-6 h-6 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-lg hidden">check</span>
+                                </p>
+                                <p class="ml-2 mr-2 text-sm">Ostetaan</p>
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -138,8 +187,8 @@
         </div>
 
         <div class="px-6 md:mx-auto md:pt-6 w-full py-6 flex justify-center dark:bg-gray-900 dark:md:bg-transparent">
-            <div id="button-hae" class="w-full md:max-w-xl rounded px-4 py-3 bg-red-400 text-center text-white text-xl flex space-x-2 items-center justify-center dark:border-2 dark:border-red-400 dark:text-red-400 dark:bg-gray-900 dark:rounded-lg dark:md:bg-gray-800">
-                <span class="material-symbols-outlined text-3xl text-white dark:text-red-400">search</span>
+            <div id="button-hae" class="w-full md:max-w-xl rounded px-4 py-3 bg-red-400 text-center text-white text-xl flex space-x-2 items-center justify-center dark:border-2 dark:border-red-400 dark:text-red-400 dark:bg-gray-900 dark:rounded-lg dark:md:bg-gray-800 dark:hover:bg-red-400 dark:hover:text-white cursor-pointer">
+                <span class="material-symbols-outlined text-3xl">search</span>
                 <p class="font-bold">Hae</p>
             </div>
         </div>
