@@ -1,45 +1,87 @@
 $(document).ready(function(){
-    // Lataa JSON-data
-    $.getJSON('sijainnit.json', function(data) {
-        function parseData(obj, level = 0, parentLocations = '') {
-            $.each(obj, function(key, value) {
-                if (key === "kunnat" || key === "osat") {
-                    // Käsitellään rekursiivisesti alakohteita, ei lisätä leveliä, mutta päivitetään parentLocations
-                    parseData(value, level + 1, parentLocations);
-                } else if (value.hasOwnProperty('location')) {
-                    // Muodostetaan checkboxin arvo
-                    const locationValue = level + '.' + (parentLocations ? parentLocations + '.' : '') + value.location;
-                    
-                    // Kohteen käsittely
-                    const optionText = key;
-                    const checkbox = $('<input>', {
-                        type: 'checkbox',
-                        class: 'location-checkbox mr-2',
-                        value: locationValue, // Päivitetty arvo polulla
-                        'data-level': level,
-                        'data-name': optionText
-                    });
-                    const span = $('<span>').text(optionText);
-                    // Päivitetään labelin luokka tason mukaan
-                    const labelClass = 'px-2 py-1 flex' + (level === 1 ? ' pl-6' : '')  + (level === 2 ? ' pl-12' : '');
-                    const label = $('<label>', {
-                        class: labelClass
-                    }).append(checkbox).append(span);
+    $.when(
+        $.getJSON('sijainnit.json', function(data) {
+            function parseData(obj, level = 0, parentLocations = '') {
+                $.each(obj, function(key, value) {
+                    if (key === "kunnat" || key === "osat") {
+                        // Käsitellään rekursiivisesti alakohteita, ei lisätä leveliä, mutta päivitetään parentLocations
+                        parseData(value, level + 1, parentLocations);
+                    } else if (value.hasOwnProperty('location')) {
+                        // Muodostetaan checkboxin arvo
+                        const locationValue = level + '.' + (parentLocations ? parentLocations + '.' : '') + value.location;
+                        
+                        // Kohteen käsittely
+                        const optionText = key;
+                        const checkbox = $('<input>', {
+                            type: 'checkbox',
+                            class: 'location-checkbox mr-2',
+                            value: locationValue, // Päivitetty arvo polulla
+                            'data-level': level,
+                            'data-name': optionText
+                        });
+                        const span = $('<span>').text(optionText);
+                        // Päivitetään labelin luokka tason mukaan
+                        const labelClass = 'px-2 py-1 flex' + (level === 1 ? ' pl-6' : '')  + (level === 2 ? ' pl-12' : '');
+                        const label = $('<label>', {
+                            class: labelClass
+                        }).append(checkbox).append(span);
 
-                    $('#dropdownContainer').append(label);
-                }
+                        $('#dropdownContainer').append(label);
+                    }
 
-                // Jos objekti sisältää muita kohteita
-                if (typeof value === 'object' && key !== "kunnat" && key !== "osat") {
-                    // Jos meillä on validi location, päivitä parentLocations seuraavaa tasoa varten
-                    const newParentLocations = value.location ? (parentLocations ? parentLocations + '.' + value.location : value.location.toString()) : parentLocations;
-                    parseData(value, level, newParentLocations);
-                }
-            });
-        }
+                    // Jos objekti sisältää muita kohteita
+                    if (typeof value === 'object' && key !== "kunnat" && key !== "osat") {
+                        // Jos meillä on validi location, päivitä parentLocations seuraavaa tasoa varten
+                        const newParentLocations = value.location ? (parentLocations ? parentLocations + '.' + value.location : value.location.toString()) : parentLocations;
+                        parseData(value, level, newParentLocations);
+                    }
+                });
+            }
+            // Käynnistä datan jäsentäminen
+            parseData(data);
+        }),
+        $.getJSON('osastot.json', function(data) {
+            function parseData(obj, level = 0, parentLocations = '') {
+                $.each(obj, function(key, value) {
+                    if (key === "kategoriat" || key === "alakategoriat") {
+                        // Käsitellään rekursiivisesti alakohteita, ei lisätä leveliä, mutta päivitetään parentLocations
+                        parseData(value, level + 1, parentLocations);
+                    } else if (value.hasOwnProperty('location')) {
+                        // Muodostetaan checkboxin arvo
+                        const locationValue = level + '.' + (parentLocations ? parentLocations + '.' : '') + value.location;
+                        
+                        // Kohteen käsittely
+                        const optionText = key;
+                        const checkbox = $('<input>', {
+                            type: 'checkbox',
+                            name: 'osasto',
+                            class: 'location-checkbox mr-2 mt-1',
+                            value: locationValue, // Päivitetty arvo polulla
+                            'data-level': level,
+                            'data-name': optionText
+                        });
+                        const span = $('<span>').text(optionText);
+                        // Päivitetään labelin luokka tason mukaan
+                        const labelClass = 'px-2 py-1 flex items-start' + (level === 1 ? ' pl-6' : '') + (level === 2 ? ' pl-12 hidden' : '');
+                        const label = $('<label>', {
+                            class: labelClass
+                        }).append(checkbox).append(span);
 
-        // Käynnistä datan jäsentäminen
-        parseData(data);
+                        $('#dropdownContainer-osasto').append(label);
+                    }
+
+                    // Jos objekti sisältää muita kohteita
+                    if (typeof value === 'object' && key !== "kategoriat" && key !== "alakategoriat") {
+                        // Jos meillä on validi location, päivitä parentLocations seuraavaa tasoa varten
+                        const newParentLocations = value.location ? (parentLocations ? parentLocations + '.' + value.location : value.location.toString()) : parentLocations;
+                        parseData(value, level, newParentLocations);
+                    }
+                });
+            }
+            parseData(data);
+        })
+    ).done(function() {
+        fillFormWithLastSearch();
     });
 
     // Kuuntele kaikkien checkboxien valintatapahtumaa #dropdownContainer sisällä
@@ -108,15 +150,13 @@ $(document).ready(function(){
     
             // Kun vastaavuus löytyy...
             if (labelText.indexOf(value) > -1) {
-                // Näytä kaikki data-level="1" elementit, jos niiden vanhempi vastaa hakua
-                if (dataLevel === 0) {
-                    label.show(); // Näytä vanhempi
-                    showChildren(label); // Näytä kaikki sen lapsielementit
-                } 
-                // Jos data-level="1" elementti vastaa suoraan, näytä se ja sen vanhempi
-                else if (dataLevel === 1) {
-                    label.show(); // Näytä lapsielementti
-                    // Etsi ja näytä myös sen vanhempi
+                label.show(); // Näytä vastaava label
+                // Näytä lapsielementit, jos vanhempi tai toisen tason vanhempi vastaa hakua
+                if (dataLevel === 0 || dataLevel === 1) {
+                    showChildren(label);
+                }
+                // Jos lapsielementti vastaa suoraan, näytä se ja sen vanhempi
+                if (dataLevel >= 1) {
                     showParent(label);
                 }
             }
@@ -124,24 +164,32 @@ $(document).ready(function(){
     
         // Funktio lapsielementtien näyttämiseen
         function showChildren(parentLabel) {
+            var parentLevel = parentLabel.find('input[type="checkbox"]').data('level');
             parentLabel.nextAll().each(function() {
-                if ($(this).find('input[type="checkbox"]').data('level') === 1) {
+                var childLevel = $(this).find('input[type="checkbox"]').data('level');
+                if (childLevel > parentLevel) {
                     $(this).show(); // Näytä lapsielementti
-                } else if ($(this).find('input[type="checkbox"]').data('level') === 0) {
-                    return false; // Keskeytä, kun seuraava vanhempi löytyy
+                } else if (childLevel <= parentLevel) {
+                    return false; // Keskeytä, kun toinen saman tason tai ylemmän tason elementti löytyy
                 }
             });
         }
     
-        // Funktio vanhemman näyttämiseen
+        // Funktio vanhemman ja iso-vanhemman näyttämiseen
         function showParent(childLabel) {
+            var currentLevel = childLabel.find('input[type="checkbox"]').data('level');
             childLabel.prevAll().each(function() {
-                if ($(this).find('input[type="checkbox"]').data('level') === 0) {
+                var parentLevel = $(this).find('input[type="checkbox"]').data('level');
+                if (parentLevel < currentLevel) {
                     $(this).show(); // Näytä vanhempi
-                    return false; // Keskeytä, kun vanhempi löytyy
+                    currentLevel = parentLevel; // Päivitä currentLevel seuraavaa vanhemman etsintää varten
+                    if (parentLevel === 0) {
+                        return false; // Jos saavutetaan juuritaso, keskeytä etsintä
+                    }
                 }
             });
         }
+
     });
     
     function fillFormWithLastSearch() {
@@ -152,14 +200,12 @@ $(document).ready(function(){
             $("#hakusana").val(lastSearch.hakusana);
 
             var osastoNames = lastSearch.osasto.split(", ");
-            console.log(osastoNames);
             osastoNames.forEach(function(name) {
                 $('#dropdownContainer-osasto input[data-name="' + name + '"]').each(function() {
                     $(this).prop('checked', true);
                 });
             });
             var sijaintiNames = lastSearch.sijainti.split(", ");
-            console.log(sijaintiNames);
             sijaintiNames.forEach(function(name) {
                 $('#dropdownContainer input[data-name="' + name + '"]').each(function() {
                     $(this).prop('checked', true);
@@ -181,55 +227,11 @@ $(document).ready(function(){
             if (lastSearch.tradeTypes.includes("Ostetaan")) {
                 $("#ostetaan").prop("checked", true);
             }
+
+            updateSelectedOsastotDisplay();
+            updateSelectedSijainnitDisplay();
         }
     }
-
-    // Lataa JSON-data
-    $.getJSON('osastot.json', function(data) {
-        function parseData(obj, level = 0, parentLocations = '') {
-            $.each(obj, function(key, value) {
-                if (key === "kategoriat" || key === "alakategoriat") {
-                    // Käsitellään rekursiivisesti alakohteita, ei lisätä leveliä, mutta päivitetään parentLocations
-                    parseData(value, level + 1, parentLocations);
-                } else if (value.hasOwnProperty('location')) {
-                    // Muodostetaan checkboxin arvo
-                    const locationValue = level + '.' + (parentLocations ? parentLocations + '.' : '') + value.location;
-                    
-                    // Kohteen käsittely
-                    const optionText = key;
-                    const checkbox = $('<input>', {
-                        type: 'checkbox',
-                        name: 'osasto',
-                        class: 'location-checkbox mr-2 mt-1',
-                        value: locationValue, // Päivitetty arvo polulla
-                        'data-level': level,
-                        'data-name': optionText
-                    });
-                    const span = $('<span>').text(optionText);
-                    // Päivitetään labelin luokka tason mukaan
-                    const labelClass = 'px-2 py-1 flex items-start' + (level === 1 ? ' pl-6' : '') + (level === 2 ? ' pl-12 hidden' : '');
-                    const label = $('<label>', {
-                        class: labelClass
-                    }).append(checkbox).append(span);
-
-                    $('#dropdownContainer-osasto').append(label);
-                }
-
-                // Jos objekti sisältää muita kohteita
-                if (typeof value === 'object' && key !== "kategoriat" && key !== "alakategoriat") {
-                    // Jos meillä on validi location, päivitä parentLocations seuraavaa tasoa varten
-                    const newParentLocations = value.location ? (parentLocations ? parentLocations + '.' + value.location : value.location.toString()) : parentLocations;
-                    parseData(value, level, newParentLocations);
-                }
-            });
-        }
-
-        // Käynnistä datan jäsentäminen
-        parseData(data);
-        fillFormWithLastSearch();
-        updateSelectedOsastotDisplay();
-        updateSelectedSijainnitDisplay();
-    });
 
     // Hakukentän tyhjennyksen ja kaikkien osastojen näyttämisen toiminto
     $('#dropdown-osasto > .search-container > span').click(function() {
