@@ -134,13 +134,20 @@ $(document).ready(function() {
         var searches = JSON.parse(localStorage.getItem("searchHistory") || "[]");
         var listElement = $("#search-history-list");
         listElement.empty(); // Tyhjennä lista
-    
+
         if (searches.length != 0) {
             $("#hakuhistoria").removeClass("hidden");
-
         }
 
-        searches.forEach(function(search, index) {
+        // Luodaan väliaikainen Set URL:eille uniikkien hakujen tunnistamiseksi
+        const uniqueUrls = new Set();
+        const uniqueSearches = searches.filter(search => {
+            const isUnique = !uniqueUrls.has(search.url);
+            uniqueUrls.add(search.url);
+            return isUnique;
+        });
+
+        uniqueSearches.forEach(function(search, index) {
             var link = $('<a class="h-full w-full pr-4">').attr("href", search.url).attr("target", "_blank");
 
             if (search.hakusana) {
