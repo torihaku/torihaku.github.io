@@ -168,7 +168,7 @@ $(document).ready(function() {
                 link.append($("<span>").text(`Tyyppi: ${search.tradeTypes}`), $("<br>"));
             }
 
-            var deleteButton = $('<button class="absolute right-2 top-2"><span class="material-symbols-outlined text-gray-400 text-base">close</span></button>');
+            var deleteButton = $('<button class="absolute right-2 top-2"><span class="material-symbols-outlined text-gray-400 !text-base">close</span></button>');
             deleteButton.on('click', function() {
                 searches.splice(index, 1); // Poista kohde hakuhistoriasta
                 localStorage.setItem("searchHistory", JSON.stringify(searches)); // Päivitä hakuhistoria localStorageen

@@ -21,7 +21,7 @@ $(document).ready(function(){
                         });
                         const span = $('<span>').text(optionText);
                         // Päivitetään labelin luokka tason mukaan
-                        const labelClass = 'px-2 py-1 flex' + (level === 1 ? ' pl-6' : '')  + (level === 2 ? ' pl-12' : '');
+                        const labelClass = 'px-2 py-1 flex cursor-pointer' + (level === 1 ? ' pl-6' : '')  + (level === 2 ? ' pl-12' : '');
                         const label = $('<label>', {
                             class: labelClass
                         }).append(checkbox).append(span);
@@ -62,7 +62,7 @@ $(document).ready(function(){
                         });
                         const span = $('<span>').text(optionText);
                         // Päivitetään labelin luokka tason mukaan
-                        const labelClass = 'px-2 py-1 flex items-start' + (level === 1 ? ' pl-6' : '') + (level === 2 ? ' pl-12 hidden' : '');
+                        const labelClass = 'px-2 py-1 flex items-start cursor-pointer' + (level === 1 ? ' pl-6' : '') + (level === 2 ? ' pl-12 hidden' : '');
                         const label = $('<label>', {
                             class: labelClass
                         }).append(checkbox).append(span);
@@ -97,7 +97,7 @@ $(document).ready(function(){
         $('#dropdownContainer input[type="checkbox"]:checked').each(function() {
             var name = $(this).data('name');
             var value = $(this).val();
-            var span = $('<span class="material-symbols-outlined text-gray-400 flex items-center text-xs ml-1">close</span>');
+            var span = $('<span class="material-symbols-outlined text-gray-400 flex items-center !text-xs ml-1">close</span>');
             var p = $('<p class="selected-sijainti text-sm mr-2 py-1 pl-3 pr-2 bg-gray-100 dark:bg-gray-600 rounded-full cursor-pointer whitespace-nowrap flex items-center">').text(name).append(span);
             
             // Lisää klikkaustapahtuma spanille poistoa varten
@@ -258,7 +258,7 @@ $(document).ready(function(){
         $('#dropdownContainer-osasto input[type="checkbox"]:checked').each(function() {
             var name = $(this).data('name');
             var value = $(this).val();
-            var span = $('<span class="material-symbols-outlined text-gray-400 flex items-center text-xs ml-1">close</span>');
+            var span = $('<span class="material-symbols-outlined text-gray-400 flex items-center !text-xs ml-1">close</span>');
             var p = $('<p class="selected-osasto text-sm mr-2 py-1 pr-2 pl-3 bg-gray-100 dark:bg-gray-600 rounded-full cursor-pointer whitespace-nowrap flex items-center">').text(name).append(span);
             
             span.on('click', function() {
