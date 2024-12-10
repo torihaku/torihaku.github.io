@@ -93,7 +93,7 @@ $(document).ready(function() {
         var name = checkbox.siblings("label").text(); 
         var location = checkbox.val(); 
         var span = $('<span class="material-symbols-outlined text-gray-400 flex items-center !text-xs ml-1 translate-y-[2px]">close</span>');
-        var selectedItem = $('<p class="selected-sijainti border border-gray-200 dark:border-gray-600 inline-block text-sm mr-2 mb-2 py-1 pr-2 h-8 pl-3 dark:text-white bg-gray-100 dark:bg-gray-700 rounded-full cursor-pointer whitespace-nowrap">')
+        var selectedItem = $('<p class="selected-sijainti border border-gray-200 dark:border-gray-600 inline-block text-sm mr-2 mb-2 py-1 pr-2 leading-[1.5rem] pl-3 dark:text-white bg-gray-100 dark:bg-gray-700 rounded-full cursor-pointer whitespace-nowrap">')
             .attr("data-location", location) 
             .text(name)
             .append(span);
