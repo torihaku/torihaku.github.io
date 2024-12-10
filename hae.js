@@ -156,7 +156,7 @@ $(document).ready(function() {
             var link = $('<a class="h-full w-full pr-5">').attr("href", search.url).attr("target", "_blank");
     
             if (search.hakusana) {
-                link.append($('<span class="font-bold !text-base leading-none">').text(search.hakusana), $("<br>"));
+                link.append($('<span class="font-bold text-base !leading-none">').text(search.hakusana), $("<br>"));
             }
             if (search.osasto) {
                 link.append($('<span>').text(`${search.osasto}`), $("<br>"));
