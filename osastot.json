@@ -1,6 +1,7 @@
 {
     "Antiikki ja taide": {
       "location": 76,
+      "icon": "palette",
       "kategoriat": {
         "Antiikkihuonekalut": {
             "location": 5178,
@@ -31,6 +32,7 @@
     },
     "Auto-, vene- ja moottoripyörätarvikkeet": {
         "location": 90,
+        "icon": "directions_car",
         "kategoriat": {
             "Asuntoauto- ja matkailuautotarvikkeet": {
                 "location": 70,
@@ -71,6 +73,7 @@
     },
     "Elektroniikka ja kodinkoneet": {
         "location": 93,
+        "icon": "sports_esports",
         "kategoriat": {
             "Kodin pienkoneet": {
                 "location": 3216,
@@ -137,6 +140,7 @@
     },
     "Eläimet ja eläintarvikkeet": {
         "location": 77,
+        "icon": "sound_detection_dog_barking",
         "kategoriat": {
             "Akvaariot": {
                 "location": 3976,
@@ -220,8 +224,9 @@
             }
         }
     },
-    "Huonekalut ja sisustus": {
+    "Koti ja sisustus": {
         "location": 78,
+        "icon": "chair",
         "kategoriat": {
             "Hyllyt ja lipastot": {
                 "location": 8345,
@@ -277,6 +282,7 @@
     },
     "Koti, puutarha ja rakentaminen": {
         "location": 67,
+        "icon": "home",
         "kategoriat": {
             "Autotallin ovet ja kalusteet": {
                 "location": 8348
@@ -312,6 +318,7 @@
     },
     "Lapset ja vanhemmat": {
         "location": 68,
+        "icon": "crib",
         "kategoriat": {
             "Lasten kalusteet": {
                 "location": 3916
@@ -347,6 +354,7 @@
     },
     "Liiketoiminta ja palvelut": {
         "location": 91,
+        "icon": "store",
         "kategoriat": {
             "Esitystekniikka": {
                 "location": 3110
@@ -388,11 +396,12 @@
     },
     "Urheilu ja ulkoilu": {
         "location": 69,
+        "icon": "sports_tennis",
         "kategoriat": {
             "Extreme-urheilu": {
                 "location": 3938
             },
-            "Fanituottee": {
+            "Fanituotteet": {
                 "location": 3937
             },
             "Golf": {
@@ -438,6 +447,7 @@
     },
     "Vaatteet, kosmetiikka ja asusteet": {
         "location": 71,
+        "icon": "apparel",
         "kategoriat": {
             "Ihonhoito ja hiustenhoito": {
                 "location": 8280
@@ -476,6 +486,7 @@
     },
     "Viihde ja harrastukset": {
         "location": 86,
+        "icon": "import_contacts",
         "kategoriat": {
             "Elintarvikkeet": {
                 "location": 3972
