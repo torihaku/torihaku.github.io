@@ -27,17 +27,20 @@
     gtag('config', 'G-Y6YK874BBQ');
     </script>
 </head>
-<body class="md:bg-gray-100 dark:bg-gray-900">
-    <div class="py-4 text-center flex flex-col items-center bg-red-400 text-white px-6 fixed top-0 w-full z-10 dark:bg-gray-900 dark:text-red-400 dark:border-b dark:border-gray-800">
-        <div class="transition-colors duration-500" id="themeToggle">
-            <button class="absolute left-4 top-1/2 -translate-y-1/2 dark:text-gray-400"><span class="material-symbols-outlined text-xl">light_mode</span></button>
+<body class="md:bg-gray-100 dark:bg-gray-900 h-screen w-screen overflow-x-hidden">
+
+    <div class="py-4 text-center flex items-center bg-red-400 text-white px-6 fixed top-0 w-full z-10 dark:bg-gray-900 dark:text-red-400 dark:border-b dark:border-gray-800">
+        <div class="transition-colors duration-500 w-2/12 flex items-center justify-start" id="themeToggle">
+            <button class="dark:text-gray-400 flex items-center"><span class="material-symbols-outlined text-xl">light_mode</span></button>
         </div>
-        <h1 class="font-black text-4xl leading-none flex items-center"><span class="font-bold text-lg leading-1 mr-2">helppo</span>torihaku</h1>
-        <a href="#" id="open-modal" class="underline text-white"><span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-xl dark:text-gray-400">help</span></a>
+        <h1 class="w-10/12 font-black text-4xl leading-none flex items-center justify-center">torihaku</h1>
+        <div class="flex w-2/12 items-center justify-end">
+            <a href="#" id="open-modal" class="text-white flex items-center"><span class="material-symbols-outlined text-xl dark:text-gray-400">help</span></a>
+        </div>
     </div>
     <div class="container mx-auto flex flex-col justify-between md:border md:my-8 md:shadow-lg md:border-gray-300 md:rounded-xl md:max-w-screen-lg bg-white md:mt-24 dark:bg-gray-900 dark:text-white dark:border-gray-700 dark:md:bg-gray-800 h-screen md:h-auto">
         <div>
-            <div id="hakukentta" class="px-6 pt-20 mt-3 md:max-w-xl md:mx-auto md:py-6 md:pt-6 mb-4">
+            <div id="hakukentta" class="px-6 pt-20 mt-3 md:max-w-xl md:mx-auto md:py-6 md:pt-6 mb-6">
                 <div class="flex items-center relative rounded">
                     <span class="material-symbols-outlined text-gray-900 absolute left-4 top-1/2 -translate-y-1/2 text-3xl dark:text-white">search</span>
                     <input type="text" id="hakusana" placeholder="Hae Torista" class="pr-5 pl-14 py-4 w-full rounded text-xl dark:bg-gray-700 border border-gray-300 dark:border-gray-600 outline-none focus:ring-blue-500 focus:ring-2">
@@ -46,131 +49,135 @@
             </div>
 
             <div id="hakuhistoria" class="hidden mb-4">
-                <p class="font-bold px-6 mb-2">Aiemmat haut:</p>
+                <p class="font-bold text-xl text-gray-400 px-6 mb-3">Aiemmat haut</p>
                 <ul id="search-history-list" class="overflow-x-scroll flex flex-row pb-[3px] snap-x scroll-px-6"></ul>
             </div>
 
-            <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 px-6 md:mx-auto mb-4">
-                <div class="w-full shadow md:shadow-none relative md:max-w-[calc(50%-0.5rem)]">
-                    <div id="button-osasto" class="flex justify-between items-center w-full pr-2 py-2 border border-gray-300 rounded dark:border-gray-600 dark:bg-gray-700 h-11 cursor-pointer">
-                        <div class="label flex flex-nowrap overflow-x-scroll mr-1 relative pr-1 pl-2 ml-1">Valitse osasto</div>
-                        <div class="w-3 h-10 mr-8 bg-gradient-to-l from-transparent to-white dark:to-gray-700 absolute left-1 pointer-events-none">&nbsp;</div>
-                        <div class="w-3 h-10 mr-8 bg-gradient-to-r from-transparent to-white dark:to-gray-700 absolute right-1 pointer-events-none">&nbsp;</div>
-                        <span class="material-symbols-outlined text-gray-400 flex items-center pointer-events-none">keyboard_arrow_down</span>
-                    </div>
-                    <div id="dropdown-osasto" class="border border-gray-300 p-2 rounded shadow-lg md:shadow-none absolute bottom-0 translate-y-full w-full left-0 bg-white hidden z-50 dark:bg-gray-700 dark:border-gray-600">
-                        <div class="search-container w-full mb-2 relative">
-                            <input type="text" id="searchInput-osasto" placeholder="Hae osastoa" class="w-full border border-gray-300 rounded px-3 py-2 dark:bg-gray-600 dark:border-gray-500">
-                            <span class="material-symbols-outlined text-gray-400 flex items-center absolute right-2 top-1/2 -translate-y-1/2 !text-base cursor-pointer">close</span>
-                        </div>
-                        <div id="dropdownContainer-osasto" class="dropdown-container max-h-48 overflow-y-scroll flex flex-col bg-white dark:bg-gray-700">
-                        </div>
-                    </div>
-                </div>
+            <div class="flex flex-col border-t border-gray-200 dark:border-gray-800 md:dark:border-gray-700">
+                <div class="w-full relative px-6 py-4">
 
-                <div class="w-full shadow md:shadow-none relative md:max-w-[calc(50%-0.5rem)]">
-                    <div id="button-sijainti" class="flex justify-between items-center w-full pr-2 py-2 border border-gray-300 rounded dark:border-gray-600 dark:bg-gray-700 h-11 cursor-pointer">
-                        <div class="label flex flex-nowrap overflow-x-scroll mr-1 relative pr-1 pl-2 ml-1">Valitse sijainti</div>
-                        <div class="w-3 h-10 mr-8 bg-gradient-to-l from-transparent to-white dark:to-gray-700 absolute left-1 pointer-events-none">&nbsp;</div>
-                        <div class="w-3 h-10 mr-8 bg-gradient-to-r from-transparent to-white dark:to-gray-700 absolute right-1 pointer-events-none">&nbsp;</div>
-                        <span class="material-symbols-outlined text-gray-400 pointer-events-none">keyboard_arrow_down</span>
+                    <div id="selected-sections" class="relative">
+                        <div class="flex justify-between items-center mb-3">
+                            <p class="text-gray-400 text-xl font-bold">Osastot</p>
+                            <p id="add-section" class="flex items-center justify-center h-8 w-8 bg-red-400 text-white text-center text-xl rounded-full font-light">+</span></p>
+                        </div>
+                        <p id="no-selection" class="inline-block text-gray-400 dark:text-white/50 text-sm">Ei osastoja valittuna.</p>
                     </div>
-                    <div id="dropdown-sijainti" class="border border-gray-300 p-2 rounded shadow-lg md:shadow-none absolute bottom-0 translate-y-full w-full left-0 bg-white hidden z-50 dark:bg-gray-700 dark:border-gray-600 cursor-pointer">
-                        <div class="search-container w-full mb-2 relative">
-                            <input type="text" id="searchInput" placeholder="Hae sijaintia" class="w-full border border-gray-300 rounded px-3 py-2 dark:bg-gray-600 dark:border-gray-500">
-                            <span class="material-symbols-outlined text-gray-400 flex items-center absolute right-2 top-1/2 -translate-y-1/2 !text-base">close</span>
+
+                </div>
+            </div>
+
+            <div class="flex flex-col md:mx-auto border-t border-gray-200 dark:border-gray-800 md:dark:border-gray-700">
+                <div class="w-full relative px-6 py-4">
+                    <div id="selected-locations" class="relative">
+                        <div class="flex justify-between items-center mb-3">
+                            <p class="text-gray-400 text-xl font-bold">Sijainti</p>
+                            <p id="add-location" class="flex items-center justify-center w-8 h-8 bg-red-400 text-white text-center text-xl rounded-full font-light">+</p>
                         </div>
-                        <div id="dropdownContainer" class="dropdown-container max-h-48 overflow-y-scroll flex flex-col bg-white dark:bg-gray-700">
-                        </div>
+                        <p id="no-location" class="inline-block text-gray-400 dark:text-white/50 text-sm">Ei sijainteja valittuna.</p>
                     </div>
                 </div>
             </div>
             
-            <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 px-6 md:mx-auto mb-4">
-                <div class="myyja flex flex-col rounded space-y-2 md:basis-1/2">
+            <div class="flex flex-col px-6 md:mx-auto mb-4 border-t border-gray-200 dark:border-gray-800 md:dark:border-gray-700 py-4">
+                <div class="flex justify-between items-center mb-3">
+                    <p class="text-gray-400 text-xl font-bold">Myyjä</p>
+                </div>
+                <div class="myyja flex flex-col rounded md:basis-1/2 mb-3">
                     <div class="flex justify-between items-center md:flex-wrap space-x-2 md:space-x-0">
                         <div class="flex-1 md:basis-1/2 md:pr-2">
                             <input type="checkbox" id="yksityinen" name="yksityinen" checked>
-                            <label for="yksityinen" class="flex items-center bg-gray-100 dark:bg-gray-700 rounded-full p-1 cursor-pointer">
-                                <p class="bg-gray-300 dark:bg-gray-800 rounded-full w-6 h-6 flex items-center justify-center">
+                            <label for="yksityinen" class="flex items-center bg-gray-100 dark:bg-gray-700 dark:border dark:border-gray-600 md:dark:bg-gray-700 rounded-full p-1 cursor-pointer">
+                                <p class="bg-gray-300 dark:bg-gray-800 md:dark:bg-gray-800 rounded-full w-6 h-6 flex items-center justify-center">
                                     <span class="material-symbols-outlined text-lg hidden">check</span>
                                 </p>
-                                <p class="ml-2 mr-1 text-sm">Yksityinen</p>
+                                <p class="ml-2 text-sm">Yksityinen</p>
                             </label>
                         </div>
                         <div class="flex-1 md:basis-1/2 md:pl-2">
                             <input type="checkbox" id="yritys" name="yritys">
-                            <label for="yritys" class="flex items-center bg-gray-100 dark:bg-gray-700 rounded-full p-1 cursor-pointer">
-                                <p class="bg-gray-300 dark:bg-gray-800 rounded-full w-6 h-6 flex items-center justify-center">
+                            <label for="yritys" class="flex items-center bg-gray-100 dark:bg-gray-700 dark:border dark:border-gray-600 md:dark:bg-gray-700 rounded-full p-1 cursor-pointer">
+                                <p class="bg-gray-300 dark:bg-gray-800 md:dark:bg-gray-800 rounded-full w-6 h-6 flex items-center justify-center">
                                     <span class="material-symbols-outlined text-lg hidden">check</span>
                                 </p>
-                                <p class="ml-2 mr-1 text-sm">Yritys</p>
+                                <p class="ml-2 text-sm">Yritys</p>
                             </label>
                         </div>
                     </div>
                 </div>
-                <div class="tyyppi flex flex-col space-y-2 :flex-1 md:basis-1/2">
+                <div class="tyyppi flex flex-col space-y-2 flex-1 md:basis-1/2">
                     <div class="flex justify-between space-x-2 md:space-x-4">
                         <div class="flex-1">
                             <input type="checkbox" id="myydään" name="myydään" checked>
-                            <label for="myydään" class="flex items-center bg-gray-100 dark:bg-gray-700 rounded-full p-1 cursor-pointer">
-                                <p class="bg-gray-300 dark:bg-gray-800 rounded-full w-6 h-6 flex items-center justify-center">
+                            <label for="myydään" class="flex items-center bg-gray-100 dark:bg-gray-700 dark:border dark:border-gray-600 md:dark:bg-gray-700 rounded-full p-1 cursor-pointer">
+                                <p class="bg-gray-300 dark:bg-gray-800 md:dark:bg-gray-800 rounded-full w-6 h-6 flex items-center justify-center">
                                     <span class="material-symbols-outlined text-lg hidden">check</span>
                                 </p>
-                                <p class="ml-2 mr-2 text-sm">Myydään</p>
+                                <p class="ml-2 text-sm">Myydään</p>
                             </label>
                         </div>
                         <div class="flex-1">
                             <input type="checkbox" id="annetaan" name="annetaan">
-                            <label for="annetaan" class="flex items-center bg-gray-100 dark:bg-gray-700 rounded-full p-1 cursor-pointer">
-                                <p class="bg-gray-300 dark:bg-gray-800 rounded-full w-6 h-6 flex items-center justify-center">
+                            <label for="annetaan" class="flex items-center bg-gray-100 dark:bg-gray-700 dark:border dark:border-gray-600 rounded-full p-1 cursor-pointer">
+                                <p class="bg-gray-300 dark:bg-gray-800 md:dark:bg-gray-800 rounded-full w-6 h-6 flex items-center justify-center">
                                     <span class="material-symbols-outlined text-lg hidden">check</span>
                                 </p>
-                                <p class="ml-2 mr-2 text-sm">Annetaan</p>
+                                <p class="ml-2 text-sm">Annetaan</p>
                             </label>
                         </div>
                         <div class="flex-1">
                             <input type="checkbox" id="ostetaan" name="ostetaan">
-                            <label for="ostetaan" class="flex items-center bg-gray-100 dark:bg-gray-700 rounded-full p-1 cursor-pointer">
-                                <p class="bg-gray-300 dark:bg-gray-800 rounded-full w-6 h-6 flex items-center justify-center">
+                            <label for="ostetaan" class="flex items-center bg-gray-100 dark:bg-gray-700 dark:border dark:border-gray-600 md:dark:bg-gray-700 rounded-full p-1 cursor-pointer">
+                                <p class="bg-gray-300 dark:bg-gray-800 md:dark:bg-gray-800 rounded-full w-6 h-6 flex items-center justify-center">
                                     <span class="material-symbols-outlined text-lg hidden">check</span>
                                 </p>
-                                <p class="ml-2 mr-2 text-sm">Ostetaan</p>
+                                <p class="ml-2 text-sm">Ostetaan</p>
                             </label>
                         </div>
                     </div>
                 </div>
             </div>
-
             
-            <div class="px-6 text-gray-400 dark:text-gray-600 text-center pt-2">
-                <p class="text-xs">Tämä palvelu on itsenäisesti kehitetty eikä se tai sen kehittäjät ole missään yhteydessä Tori.fi-palveluun, Schibsted-konserniin tai mihinkään sen tytäryhtiöistä.</p>
+            <div class="px-6 text-gray-400 dark:text-gray-600 text-center pt-2 mb-28">
+                <p class="text-xs">Tämä palvelu on itsenäisesti kehitetty eikä se tai sen kehittäjä ole missään yhteydessä Tori.fi-palveluun, Schibsted-konserniin tai mihinkään sen tytäryhtiöistä.</p>
             </div>
         </div>
 
-        <div class="px-6 md:mx-auto md:pt-6 w-full py-6 flex justify-center dark:bg-gray-900 dark:md:bg-transparent">
-            <div id="button-hae" class="w-full md:max-w-xl rounded px-4 py-3 bg-red-400 text-center text-white text-xl flex space-x-2 items-center justify-center dark:border-2 dark:border-red-400 dark:text-red-400 dark:bg-gray-900 dark:rounded-lg dark:md:bg-gray-800 dark:hover:bg-red-400 dark:hover:text-white cursor-pointer">
+        <div class="px-6 md:mx-auto md:pt-6 w-full py-6 flex justify-center dark:bg-transparent dark:md:bg-transparent fixed bottom-0 left-0">
+            <div id="button-hae" class="w-full md:max-w-xl px-4 py-3 bg-red-400 text-center text-white text-xl flex space-x-2 items-center justify-center dark:bg-red-400 dark:text-white rounded-full dark:md:bg-gray-800 cursor-pointer">
                 <span class="material-symbols-outlined text-3xl">search</span>
                 <p class="font-bold">Hae</p>
             </div>
         </div>
-    </div>
 
-<div id="modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 dark:bg-opacity-80 overflow-y-auto h-full w-full p-6 z-50">
+</div>
+
+
+<div id="osasto2-container" class="fixed top-0 left-0 h-full w-full z-50 flex translate-y-full transition-all ease-in-out duration-300">
+    <div id="osasto2" class="bg-white dark:bg-gray-900 flex flex-col space-y-3 pt-6 px-6 pb-16 dark:text-white hyphens-auto overflow-y-scroll">
+    </div>
+    <div id="osasto2-closebutton" class="h-12 bg-red-400 text-white shadow fixed bottom-0 left-0 w-full z-50 flex items-center justify-center"><span class="material-symbols-outlined">keyboard_arrow_down</span></div>
+</div>
+
+<div id="sijainti2-container" class="fixed top-0 left-0 h-full w-full z-50 flex translate-y-full transition-all ease-in-out duration-300">
+    <div id="sijainti2" class="bg-white dark:bg-gray-900 w-full flex flex-col space-y-3 pt-6 px-6 pb-16 dark:text-white hyphens-auto overflow-y-scroll">
+    </div>
+    <div id="sijainti2-closebutton" class="h-12 bg-red-400 text-white shadow fixed bottom-0 left-0 w-full z-50 flex items-center justify-center"><span class="material-symbols-outlined">keyboard_arrow_down</span></div>
+</div>
+
+
+<div id="modal" class="hidden fixed top-0 left-0 inset-0 bg-gray-900 bg-opacity-50 dark:bg-opacity-80 overflow-y-auto h-full w-full p-6 z-50">
     <div class="relative top-1/2 -translate-y-1/2 p-6 w-96 shadow-lg rounded-md bg-white w-auto max-h-full overflow-y-scroll dark:bg-gray-700 dark:text-white">
         <div class="mt-3 text-left">
             <h3 class="leading-6 font-black text-2xl mb-4">Lisätietoa</h3>
             <div class="mt-2 leading-tight">
-                <p class="mt-3">Tervetuloa käyttämään yksinkertaistettua Tori.fi-hakua.</p>
+                <p class="mt-3">Tervetuloa käyttämään yksinkertaistettua Tori.fi-hakua. Palvelu on suunniteltu ensisijaisesti Android-älypuhelimille.</p>
                 <p class="mt-3">Kun teet haun palvelu avaa puhelimesi Tori-sovelluksen valmiiksi suodatettuna valintojesi mukaan.</p>
-                <p class="mt-3">Palvelu on suunniteltu ensisijaisesti Android-älypuhelimille.</p>
-                <p class="mt-3">Palvelusta voi ladata myös Android-sovelluksen <a class="underline" href="https://github.com/torihaku/torihaku.github.io/blob/main/torihaku.apk">tästä</a>.</p>
                 <p class="mt-3">iOS:n Tori-sovellus ei tue suodatusta, joten ikävä kyllä palvelu ei toimi iPhoneilla ja iPadeilla.</p>
-                <p class="mt-3">Tehdyt haut tallennetaan paikallisesti selaimesi välimuistiin, jotta voit helposti palata niihin. Palvelu itsessään <span class="font-bold">ei tallenna</span> tehtyjä hakuja.</p>
+                <p class="mt-3">Tehdyt haut tallennetaan paikallisesti selaimesi välimuistiin, jotta voit helposti palata niihin. Palvelu itsessään <span class="font-bold text-red-400">ei tallenna</span> tehtyjä hakuja.</p>
                 <p class="mt-3">Helpoin tapa käyttää palvelua on lisätä se suoraan puhelimesi kotinäytölle.</p>
-                <p class="mt-3 text-sm">Tämä palvelu on itsenäisesti kehitetty eikä se ole virallisesti yhteydessä Tori.fi-palveluun, Schibsted-konserniin tai mihinkään sen tytäryhtiöistä. Tämän palvelun kehittäjät tai tämän palvelun tarjoajat eivät ole missään suhteessa Tori.fi-palveluun tai Schibsted-konserniin, eikä heillä ole minkäänlaista virallista yhteyttä tai kumppanuutta näiden organisaatioiden kanssa.</p>
                 <p class="mt-6 font-bold">Päivitykset: </p>
-                <p class="mt-3">17.4.2024: Android-sovellus ladattavissa <a class="underline" href="https://github.com/torihaku/torihaku.github.io/blob/main/torihaku.apk">tästä</a>.</p>
+                <p class="mt-3">10.12.2024: Sovelluksen UI päivitetty osastojen ja sijaintien osalta, sekä tehty pieniä viilauksia sinne tänne.</p>
                 <p class="mt-3">2.4.2024: Korjattu muotoilun toimimattomuus.</p>
                 <p class="mt-3">27.3.2024: Useita identtisiä aiempia hakuja näytetään vain yksi.</p>
                 <p class="mt-3">27.3.2024: Korjaus automaattiseen lomakkeen täyttöön, jossa lomake ei välttämättä täyttynyt kaikilta osin.</p>
@@ -180,6 +187,7 @@
                 <p class="mt-3">21.3.2024: Osasto ja sijainti-valintoja voi poistaa helpommin.</p>
                 <p class="mt-3">20.3.2024: Tummateema lisätty.</p>
                 <p class="mt-3">19.3.2024: Osastoja voi nyt valita useita.</p>
+                <p class="mt-3 text-sm text-gray-400">Tämä palvelu on itsenäisesti kehitetty eikä se ole virallisesti yhteydessä Tori.fi-palveluun, Schibsted-konserniin tai mihinkään sen tytäryhtiöistä. Tämän palvelun kehittäjät tai tämän palvelun tarjoajat eivät ole missään suhteessa Tori.fi-palveluun tai Schibsted-konserniin, eikä heillä ole minkäänlaista virallista yhteyttä tai kumppanuutta näiden organisaatioiden kanssa.</p>
             </div>
             <div class="items-center text-center absolute top-2 right-2">
                 <button type="submit" id="close-modal" class="p-2"><span class="material-symbols-outlined text-gray-400 pointer-events-none text-3xl">close</span></button>
@@ -187,9 +195,10 @@
         </div>
     </div>
 </div>
-
-  <script src="script.js?v=1.8"></script>
-  <script src="toggle.js?v=1.8"></script>
-  <script src="hae.js?v=1.9"></script>
+<script src="theme.js?v=1.8"></script>
+<script src="osastot.js?v=1.0"></script>
+<script src="sijainnit.js?v=1.0"></script>
+<script src="toggle.js?v=1.8"></script>
+<script src="hae.js?v=1.9"></script>
 </body>
 </html>

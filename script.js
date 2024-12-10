@@ -98,7 +98,7 @@ $(document).ready(function(){
             var name = $(this).data('name');
             var value = $(this).val();
             var span = $('<span class="material-symbols-outlined text-gray-400 flex items-center !text-xs ml-1">close</span>');
-            var p = $('<p class="selected-sijainti text-sm mr-2 py-1 pl-3 pr-2 bg-gray-100 dark:bg-gray-600 rounded-full cursor-pointer whitespace-nowrap flex items-center">').text(name).append(span);
+            var p = $('<p class="selected-sijainti text-sm mr-2 py-1 pl-3 pr-2 bg-gray-200 dark:bg-gray-700 rounded-full cursor-pointer whitespace-nowrap flex items-center">').text(name).append(span);
             
             // Lisää klikkaustapahtuma spanille poistoa varten
             span.on('click', function(event) {
@@ -259,14 +259,14 @@ $(document).ready(function(){
             var name = $(this).data('name');
             var value = $(this).val();
             var span = $('<span class="material-symbols-outlined text-gray-400 flex items-center !text-xs ml-1">close</span>');
-            var p = $('<p class="selected-osasto text-sm mr-2 py-1 pr-2 pl-3 bg-gray-100 dark:bg-gray-600 rounded-full cursor-pointer whitespace-nowrap flex items-center">').text(name).append(span);
+            var p = $('<p class="selected-osasto text-sm mr-2 py-1 pr-2 pl-3 bg-gray-100 text-white dark:bg-gray-700 rounded-full cursor-pointer whitespace-nowrap inline-block">').text(name).append(span);
             
             span.on('click', function() {
                 event.stopPropagation(); // Estä tapahtuman leviäminen, jottei se sulje dropdownia
                 $('input[type="checkbox"][value="' + value + '"]').prop('checked', false);
                 p.remove();
                 if ($('#button-osasto .label').children().length === 0) {
-                    $('#button-osasto .label').text('Valitse osasto');
+                    $('#button-osasto .label').text('Ei osastoja valittuna.');
                 }
             });
 
@@ -274,7 +274,7 @@ $(document).ready(function(){
         });
 
         if ($('#button-osasto .label').children().length === 0) {
-            $('#button-osasto .label').text('Valitse osasto');
+            $('#button-osasto .label').text('Ei osastoja valittuna.');
         }
     }
 
