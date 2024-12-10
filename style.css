@@ -713,6 +713,10 @@ video {
   margin-top: 1.5rem;
 }
 
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
 .inline-block {
   display: inline-block;
 }
@@ -1198,6 +1202,22 @@ video {
 
 .leading-tight {
   line-height: 1.25;
+}
+
+.leading-\[32px\] {
+  line-height: 32px;
+}
+
+.leading-\[2rem\] {
+  line-height: 2rem;
+}
+
+.leading-\[1\.5rem\] {
+  line-height: 1.5rem;
+}
+
+.\!leading-none {
+  line-height: 1 !important;
 }
 
 .text-gray-400 {
