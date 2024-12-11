@@ -52,8 +52,7 @@ $(document).ready(function() {
                 .attr("data-name", category) 
                 .addClass("location-checkbox mr-2 mt-1")
                 .change(function(event) {
-                    event.stopPropagation(); 
-                    addSelectedCategory($(this));
+                    handleCheckboxChange($(this));
                 });
             var mainLabel = $("<label>")
                 .attr("for", mainCheckboxId)
@@ -80,7 +79,7 @@ $(document).ready(function() {
                         .attr("data-name", subcategory) 
                         .addClass("location-checkbox mr-2 mt-1")
                         .change(function() {
-                            addSelectedCategory($(this));
+                            handleCheckboxChange($(this));
                         });
         
                     var label = $("<label>")
@@ -101,47 +100,6 @@ $(document).ready(function() {
         
     });
 
-    function addSelectedCategory(checkbox) {
-        var container = $("#selected-sections"); 
-        var name = checkbox.siblings("label").text(); 
-        var location = checkbox.val(); 
-        var level = checkbox.data("level"); 
-    
-        if (container.find(".selected-osasto").filter(function() {
-            return $(this).data("location") === location;
-        }).length > 0) {
-            console.log("Valinta on jo lisätty: ", location); 
-            return; 
-        }
-    
-        if (level === 0) {
-            var existingMainCategory = container.find(".selected-osasto").filter(function() {
-                return $(this).data("location") === location;
-            }).length > 0;
-    
-            if (existingMainCategory) {
-                console.log("Pääkategoria on jo lisätty: ", location);
-                return;
-            }
-        }
-    
-        var span = $('<span class="material-symbols-outlined text-gray-400 flex items-center !text-xs ml-1 translate-y-[2px]">close</span>');
-        var selectedItem = $('<p class="selected-osasto border border-gray-200 dark:border-gray-600 inline-block text-sm mr-2 mb-2 py-1 pr-2 leading-[1.5rem] pl-3 dark:text-white bg-gray-100 dark:bg-gray-700 rounded-full cursor-pointer whitespace-nowrap">')
-            .attr("data-location", location) 
-            .text(name)
-            .append(span);
-    
-        span.click(function() {
-            $(this).parent().remove(); 
-            checkbox.prop("checked", false); 
-            toggleNoSelection(); 
-        });
-    
-        container.append(selectedItem);
-    
-        toggleNoSelection();
-    }
-    
 
     function toggleNoSelection() {
         var noSelection = $("#no-selection");
@@ -152,23 +110,39 @@ $(document).ready(function() {
         }
     }
     
-    $("#osasto2").on("change", "input[type='checkbox']", function(event) {
-        var checkbox = $(this);
+    function handleCheckboxChange(checkbox) {
+        var container = $("#selected-sections"); 
+        var name = checkbox.siblings("label").text(); 
         var location = checkbox.val(); 
-        var level = checkbox.data("level"); 
-    
-        if (level === 0) {
-            return; 
-        }
     
         if (checkbox.is(":checked")) {
-            addSelectedCategory(checkbox);
+            // Lisää uusi valinta
+            if (container.find(`[data-location="${location}"]`).length === 0) {
+                var span = $('<span class="material-symbols-outlined text-gray-400 flex items-center !text-xs ml-1 translate-y-[2px]">close</span>');
+                var selectedItem = $('<p class="selected-osasto border border-gray-200 dark:border-gray-600 inline-block text-sm mr-2 mb-2 py-1 pr-2 leading-[1.5rem] pl-3 dark:text-white bg-gray-100 dark:bg-gray-700 rounded-full cursor-pointer whitespace-nowrap">')
+                    .attr("data-location", location) 
+                    .text(name)
+                    .append(span);
+                
+                // Klikkaamalla spania poistetaan valinta ja uncheckataan checkbox
+                span.click(function(event) {
+                    event.stopPropagation(); // Estä tapahtuman kuplaantuminen
+                    selectedItem.remove(); 
+                    checkbox.prop("checked", false).trigger("change"); // Poista valinta ja laukaise tapahtuma
+                });
+    
+                container.append(selectedItem);
+            }
         } else {
-            $("#selected-sections .selected-osasto").filter(function() {
-                return $(this).data("location") === location;
-            }).remove();
-            toggleNoSelection(); 
+            // Poista valinta
+            container.find(`[data-location="${location}"]`).remove();
         }
+    
+        toggleNoSelection(); 
+    }
+    
+    $("#osasto2").on("change", "input[type='checkbox']", function() {
+        handleCheckboxChange($(this));
     });
     
 });

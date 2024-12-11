@@ -41,7 +41,7 @@ $(document).ready(function() {
                 .attr("data-name", region) 
                 .addClass("location-checkbox mr-2 mt-1")
                 .change(function() {
-                    addSelectedCategoryLocation($(this));
+                    handleLocationChange($(this));
                 });
     
             var mainLabel = $("<label>")
@@ -66,7 +66,7 @@ $(document).ready(function() {
                         .attr("data-name", municipality)
                         .addClass("location-checkbox mr-2 mt-1")
                         .change(function() {
-                            addSelectedCategoryLocation($(this));
+                            handleLocationChange($(this));
                         });
     
                     var label = $("<label>")
@@ -86,35 +86,6 @@ $(document).ready(function() {
         });
     });
     
-    
-    function addSelectedCategoryLocation(checkbox) {
-        var container = $("#selected-locations");
-        var noSelection = $("#no-location");
-        var name = checkbox.siblings("label").text(); 
-        var location = checkbox.val(); 
-        var span = $('<span class="material-symbols-outlined text-gray-400 flex items-center !text-xs ml-1 translate-y-[2px]">close</span>');
-        var selectedItem = $('<p class="selected-sijainti border border-gray-200 dark:border-gray-600 inline-block text-sm mr-2 mb-2 py-1 pr-2 leading-[1.5rem] pl-3 dark:text-white bg-gray-100 dark:bg-gray-700 rounded-full cursor-pointer whitespace-nowrap">')
-            .attr("data-location", location) 
-            .text(name)
-            .append(span);
-    
-        span.click(function() {
-            $(this).parent().remove(); 
-            checkbox.prop("checked", false); 
-            toggleNoSelectionLocation(); 
-        });
-    
-        if (container.find(`[data-location="${location}"]`).length > 0) {
-            return;
-        }
-
-        container.append(selectedItem);
-        
-        toggleNoSelectionLocation();
-    }
-    
-    
-
     function toggleNoSelectionLocation() {
         var noSelection = $("#no-location");
         if ($("#selected-locations .selected-sijainti").length > 0) {
@@ -124,20 +95,36 @@ $(document).ready(function() {
         }
     }
     
-    $("#sijainti2").off("change", "input[type='checkbox']").on("change", "input[type='checkbox']", function() {
-        var checkbox = $(this);
-        var location = checkbox.val();
-
+    function handleLocationChange(checkbox) {
+        var container = $("#selected-locations");
+        var name = checkbox.siblings("label").text(); 
+        var location = checkbox.val(); 
+    
         if (checkbox.is(":checked")) {
-            if ($("#selected-locations").find(`[data-location="${location}"]`).length === 0) {
-                addSelectedCategoryLocation(checkbox);
+            if (container.find(`[data-location="${location}"]`).length === 0) {
+                var span = $('<span class="material-symbols-outlined text-gray-400 flex items-center !text-xs ml-1 translate-y-[2px]">close</span>');
+                var selectedItem = $('<p class="selected-sijainti border border-gray-200 dark:border-gray-600 inline-block text-sm mr-2 mb-2 py-1 pr-2 leading-[1.5rem] pl-3 dark:text-white bg-gray-100 dark:bg-gray-700 rounded-full cursor-pointer whitespace-nowrap">')
+                    .attr("data-location", location) 
+                    .text(name)
+                    .append(span);
+                
+                span.click(function() {
+                    selectedItem.remove(); 
+                    checkbox.prop("checked", false).trigger("change"); 
+                    toggleNoSelectionLocation();
+                });
+    
+                container.append(selectedItem);
             }
         } else {
-            $("#selected-locations .selected-sijainti").filter(function() {
-                return $(this).data("location") === location;
-            }).remove();
-            toggleNoSelectionLocation();
+            container.find(`[data-location="${location}"]`).remove();
         }
+    
+        toggleNoSelectionLocation();
+    }
+    
+    $("#sijainti2").on("change", "input[type='checkbox']", function() {
+        handleLocationChange($(this));
     });
     
 });

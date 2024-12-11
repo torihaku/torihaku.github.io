@@ -159,16 +159,16 @@ $(document).ready(function() {
                 link.append($('<span class="font-bold text-base !leading-none">').text(search.hakusana), $("<br>"));
             }
             if (search.osasto) {
-                link.append($('<span>').text(`${search.osasto}`), $("<br>"));
+                link.append($('<span class="!leading-none">').text(`${search.osasto}`), $("<br>"));
             }
             if (search.sijainti) {
-                link.append($("<span>").text(`${search.sijainti}`), $("<br>"));
+                link.append($('<span !leading-none>').text(`${search.sijainti}`), $("<br>"));
             }
             if (search.dealerSegments) {
-                link.append($("<span>").text(`Myyjä: ${search.dealerSegments}`), $("<br>"));
+                link.append($('<span !leading-none>').text(`Myyjä: ${search.dealerSegments}`), $("<br>"));
             }
             if (search.tradeTypes) {
-                link.append($("<span>").text(`Tyyppi: ${search.tradeTypes}`), $("<br>"));
+                link.append($('<span !leading-none>').text(`Tyyppi: ${search.tradeTypes}`), $("<br>"));
             }
     
             var deleteButton = $('<button class="absolute right-2 top-2"><span class="material-symbols-outlined text-gray-400 !text-base">close</span></button>');
