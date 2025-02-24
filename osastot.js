@@ -3,10 +3,14 @@ $(document).ready(function() {
     $("#add-section").click(function() {
         $("#osasto2-container").removeClass("translate-y-full md:h-[90vh] md:top-1/2 md:-translate-y-1/2"); 
         $("#osasto2-container").addClass("md:h-[90vh] md:top-1/2 md:-translate-y-1/2"); 
+        $(".container").addClass("opacity-50 pointer-events-none blur-sm"); 
+        $("#header").addClass("opacity-50 pointer-events-none blur-sm"); 
     });
     $("#osasto2-closebutton").click(function() {
         $("#osasto2-container").addClass("translate-y-full md:h-[90vh] md:top-1/2 md:-translate-y-1/2"); 
         $("#osasto2-container").removeClass("md:h-[90vh] md:top-1/2 md:-translate-y-1/2"); 
+        $(".container").removeClass("opacity-50 pointer-events-none blur-sm"); 
+        $("#header").removeClass("opacity-50 pointer-events-none blur-sm"); 
     });
         
   
