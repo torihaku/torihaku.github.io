@@ -27,9 +27,9 @@
     gtag('config', 'G-Y6YK874BBQ');
     </script>
 </head>
-<body class="md:bg-gray-100 dark:bg-gray-900 h-screen w-screen overflow-x-hidden">
+<body class="md:bg-gray-100 dark:bg-gray-900 h-screen md:h-auto w-screen overflow-x-hidden md:px-12">
 
-    <div class="py-4 text-center flex items-center bg-red-400 text-white px-6 fixed top-0 w-full z-10 dark:bg-gray-900 dark:text-red-400 dark:border-b dark:border-gray-800">
+    <div class="py-4 text-center flex items-center bg-red-400 text-white px-6 fixed top-0 w-full z-10 dark:bg-gray-900 dark:text-red-400 dark:border-b dark:border-gray-800 md:fixed md:top-0 md:left-0">
         <div class="transition-colors duration-500 w-2/12 flex items-center justify-start" id="themeToggle">
             <button class="dark:text-gray-400 flex items-center"><span class="material-symbols-outlined text-xl">light_mode</span></button>
         </div>
@@ -40,7 +40,7 @@
     </div>
     <div class="container mx-auto flex flex-col justify-between md:border md:my-8 md:shadow-lg md:border-gray-300 md:rounded-xl md:max-w-screen-lg bg-white md:mt-24 dark:bg-gray-900 dark:text-white dark:border-gray-700 dark:md:bg-gray-800 h-screen md:h-auto">
         <div>
-            <div id="hakukentta" class="px-6 pt-20 mt-3 md:max-w-xl md:mx-auto md:py-6 md:pt-6 mb-6">
+            <div id="hakukentta" class="px-6 pt-20 mt-3 md:mx-auto md:py-6 md:pt-6 mb-6 md:border-b md:dark:border-gray-700 md:border-gray-200">
                 <div class="flex items-center relative rounded">
                     <span class="material-symbols-outlined text-gray-900 absolute left-4 top-1/2 -translate-y-1/2 text-3xl dark:text-white">search</span>
                     <input type="text" id="hakusana" placeholder="Hae Torista" class="pr-5 pl-14 py-4 w-full rounded text-xl dark:bg-gray-700 border border-gray-300 dark:border-gray-600 outline-none focus:ring-blue-500 focus:ring-2">
@@ -141,7 +141,7 @@
         </div>
 
         <div class="px-6 md:mx-auto md:pt-6 w-full py-6 flex justify-center dark:bg-transparent dark:md:bg-transparent fixed bottom-0 left-0">
-            <div id="button-hae" class="w-full md:max-w-xl px-4 py-3 bg-red-400 text-center text-white text-xl flex space-x-2 items-center justify-center dark:bg-red-400 dark:text-white rounded-full dark:md:bg-gray-800 cursor-pointer">
+            <div id="button-hae" class="w-full md:max-w-xl px-4 py-3 bg-red-400 text-center text-white text-xl flex space-x-2 items-center justify-center dark:bg-red-400 dark:text-white rounded-full dark:md:bg-red-400 cursor-pointer">
                 <span class="material-symbols-outlined text-3xl">search</span>
                 <p class="font-bold">Hae</p>
             </div>
@@ -150,18 +150,17 @@
 </div>
 
 
-<div id="osasto2-container" class="fixed top-0 left-0 h-full w-full z-50 flex translate-y-full transition-all ease-in-out duration-300">
-    <div id="osasto2" class="bg-white dark:bg-gray-900 w-full flex flex-col space-y-3 pt-6 px-6 pb-16 dark:text-white hyphens-auto overflow-y-scroll">
+<div id="osasto2-container" class="fixed top-0 left-0 h-full md:w-1/2 md:left-1/2 md:-translate-x-1/2 w-full z-50 flex translate-y-full transition-all ease-in-out duration-300 md:rounded-xl md:shadow-lg">
+    <div id="osasto2" class="bg-white dark:bg-gray-900 w-full flex flex-col space-y-3 pt-6 px-6 pb-16 dark:text-white hyphens-auto overflow-y-scroll md:dark:bg-gray-700 md:rounded-xl">
     </div>
-    <div id="osasto2-closebutton" class="h-12 bg-red-400 text-white shadow fixed bottom-0 left-0 w-full z-50 flex items-center justify-center"><span class="material-symbols-outlined">keyboard_arrow_down</span></div>
+    <div id="osasto2-closebutton" class="h-12 bg-red-400 text-white shadow fixed bottom-0 left-0 w-full z-50 flex items-center justify-center md:rounded-b-xl">Sulje <span class="material-symbols-outlined">keyboard_arrow_down</span></div>
 </div>
 
-<div id="sijainti2-container" class="fixed top-0 left-0 h-full w-full z-50 flex translate-y-full transition-all ease-in-out duration-300">
-    <div id="sijainti2" class="bg-white dark:bg-gray-900 w-full flex flex-col space-y-3 pt-6 px-6 pb-16 dark:text-white hyphens-auto overflow-y-scroll">
+<div id="sijainti2-container" class="fixed top-0 left-0 h-full md:w-1/2 md:left-1/2 md:-translate-x-1/2 w-full z-50 flex translate-y-full transition-all ease-in-out duration-300 md:rounded-xl md:shadow-lg">
+    <div id="sijainti2" class="bg-white dark:bg-gray-900 w-full flex flex-col space-y-3 pt-6 px-6 pb-16 dark:text-white hyphens-auto overflow-y-scroll md:dark:bg-gray-700 md:rounded-xl">
     </div>
-    <div id="sijainti2-closebutton" class="h-12 bg-red-400 text-white shadow fixed bottom-0 left-0 w-full z-50 flex items-center justify-center"><span class="material-symbols-outlined">keyboard_arrow_down</span></div>
+    <div id="sijainti2-closebutton" class="h-12 bg-red-400 text-white shadow fixed bottom-0 left-0 w-full z-50 flex items-center justify-center md:rounded-b-xl">Sulje <span class="material-symbols-outlined">keyboard_arrow_down</span></div>
 </div>
-
 
 <div id="modal" class="hidden fixed top-0 left-0 inset-0 bg-gray-900 bg-opacity-50 dark:bg-opacity-80 overflow-y-auto h-full w-full p-6 z-50">
     <div class="relative top-1/2 -translate-y-1/2 p-6 w-96 shadow-lg rounded-md bg-white w-auto max-h-full overflow-y-scroll dark:bg-gray-700 dark:text-white">
@@ -174,6 +173,7 @@
                 <p class="mt-3">Tehdyt haut tallennetaan paikallisesti selaimesi välimuistiin, jotta voit helposti palata niihin. Palvelu itsessään <span class="font-bold text-red-400">ei tallenna</span> tehtyjä hakuja.</p>
                 <p class="mt-3">Helpoin tapa käyttää palvelua on lisätä se suoraan puhelimesi kotinäytölle.</p>
                 <p class="mt-6 font-bold">Päivitykset: </p>
+                <p class="mt-3">24.2.2025: Desktop-näkymää paranneltu.</p>
                 <p class="mt-3">10.12.2024: Sovelluksen UI päivitetty osastojen ja sijaintien osalta, sekä tehty pieniä viilauksia sinne tänne.</p>
                 <p class="mt-3">2.4.2024: Korjattu muotoilun toimimattomuus.</p>
                 <p class="mt-3">27.3.2024: Useita identtisiä aiempia hakuja näytetään vain yksi.</p>

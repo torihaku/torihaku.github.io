@@ -1,10 +1,12 @@
 $(document).ready(function() {
 
     $("#add-section").click(function() {
-        $("#osasto2-container").removeClass("translate-y-full"); 
+        $("#osasto2-container").removeClass("translate-y-full md:h-[90vh] md:top-1/2 md:-translate-y-1/2"); 
+        $("#osasto2-container").addClass("md:h-[90vh] md:top-1/2 md:-translate-y-1/2"); 
     });
     $("#osasto2-closebutton").click(function() {
-        $("#osasto2-container").addClass("translate-y-full"); 
+        $("#osasto2-container").addClass("translate-y-full md:h-[90vh] md:top-1/2 md:-translate-y-1/2"); 
+        $("#osasto2-container").removeClass("md:h-[90vh] md:top-1/2 md:-translate-y-1/2"); 
     });
         
   
