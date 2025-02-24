@@ -2,10 +2,12 @@ $(document).ready(function() {
 
     $("#add-location").click(function() {
         console.log('mitä');
-        $("#sijainti2-container").removeClass("translate-y-full");
+        $("#sijainti2-container").removeClass("translate-y-full md:h-[90vh] md:top-1/2 md:-translate-y-1/2"); 
+        $("#sijainti2-container").addClass("md:h-[90vh] md:top-1/2 md:-translate-y-1/2"); 
     });
     $("#sijainti2-closebutton").click(function() {
-        $("#sijainti2-container").addClass("translate-y-full");
+        $("#sijainti2-container").addClass("translate-y-full md:h-[90vh] md:top-1/2 md:-translate-y-1/2"); 
+        $("#sijainti2-container").removeClass("md:h-[90vh] md:top-1/2 md:-translate-y-1/2"); 
     });
   
     $.getJSON('sijainnit.json', function(data) {
